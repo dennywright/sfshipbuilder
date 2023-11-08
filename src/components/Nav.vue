@@ -37,6 +37,13 @@
         <li><a href="#sensors">Sensors</a></li>
         <li><a href="#shields">Shields</a></li>
         <li><a href="#weapons">Weapons</a></li>
+        <ul class="contents__1">
+          <li><a href="#forward">Forward Arc</a></li>
+          <li><a href="#aft">Aft Arc</a></li>
+          <li><a href="#port">Port Arc</a></li>
+          <li><a href="#starboard">Starboard Arc</a></li>
+          <li><a href="#turret">Turret</a></li>
+        </ul>
         <li v-if="params.sourcesInUse.pw || params.sourcesInUse.som || params.sourcesInUse.dnd">
           <a href="#other">Systems and Upgrades</a>
         </li>

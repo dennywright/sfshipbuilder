@@ -2093,7 +2093,7 @@
 
       <template v-for="(weaponList, position) in weaponMounts">
         <header class="box__header">
-          <h4 id="weapons_test">
+          <h4 :id="position">
             {{ position.toTitleCase() + (position == 'turret' ? '' : ' Arc') }}
           </h4>
         </header>
