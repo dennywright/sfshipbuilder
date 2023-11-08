@@ -19,7 +19,7 @@
       "engineRating": 1,
       "minPcu": 75,
       "maxSize": 10,
-      "bpCostMultiplier": 1
+      "bpCostMultiplier": 2
     },
     {
       "id": "signal-booster",
@@ -27,7 +27,7 @@
       "engineRating": 2,
       "minPcu": 100,
       "maxSize": 5,
-      "bpCostMultiplier": 2
+      "bpCostMultiplier": 5
     },
     {
       "id": "signal-major",
@@ -35,7 +35,7 @@
       "engineRating": 3,
       "minPcu": 150,
       "maxSize": 4,
-      "bpCostMultiplier": 3
+      "bpCostMultiplier": 10
     },
     {
       "id": "signal-superior",
@@ -43,7 +43,7 @@
       "engineRating": 4,
       "minPcu": 175,
       "maxSize": 4,
-      "bpCostMultiplier": 4
+      "bpCostMultiplier": 15
     },
     {
       "id": "signal-ultra",
@@ -51,7 +51,7 @@
       "engineRating": 5,
       "minPcu": 200,
       "maxSize": 3,
-      "bpCostMultiplier": 5
+      "bpCostMultiplier": 20
     },
     {
       "id": "archon-drive",
