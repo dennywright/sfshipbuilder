@@ -1004,7 +1004,9 @@ export default {
 
     // computed continued...
     driftEngineBpCost() {
-      return this.driftEngine.bpCostMultiplier * this.sizeCategory.multiplier;
+        return this.params.sourcesInUse.dnd ? 
+          this.driftEngine.engineRating * this.sizeCategory.multiplier :
+          this.driftEngine.bpCostMultiplier * this.sizeCategory.multiplier;
     },
 
     // computed continued...
@@ -1311,7 +1313,8 @@ export default {
       }
       // Computers skill
       if (this.skillModifierComputers !== 0) {
-        desc.push(this.getPrefixedModifier(this.skillModifierComputers) + ' Computers');
+        var skillText = this.params.sourcesInUse.dnd ? ' Data and Science' : ' Computers'
+        desc.push(this.getPrefixedModifier(this.skillModifierComputers) + skillText);
       }
       // Piloting skill
       if (this.skillModifierPiloting !== 0) {
