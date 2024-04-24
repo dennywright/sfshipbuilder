@@ -240,10 +240,10 @@
           "heavy"
         ]
       },
-      "expansionBays": 6,
+      "expansionBays": 8,
       "minCrew": 4,
       "maxCrew": 20,
-      "bpCost": 15
+      "bpCost": 20
     },
     {
       "id": "destroyer",
