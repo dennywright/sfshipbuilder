@@ -2623,7 +2623,7 @@ export default {
 
       const blob = new Blob([JSON.stringify(shipData, null, 2)], { type: 'application/json' });
 
-      saveAs(blob, `${camelCase(shipName)}.json`);
+      saveAs(blob, `${camelCase(shipName)}_tier${shipData.tier}.json`);
     },
 
     // methods continued...
