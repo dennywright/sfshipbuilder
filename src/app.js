@@ -354,27 +354,30 @@ export default {
         expansionBayIds: ['none', 'none', 'none'],
         fortifiedHullId: 'none',
         frameId: 'light-freighter',
+        hasAblativeArmor: false,
+        hasAfterburners: 0, // upgrades (dnd)
         hasAlgalShielding: 0, // other systems (som)
         hasAutoDestruct: 0,
         hasBiometricLocks: 0,
+        hasCaptainsChair: 0, // upgrades (dnd)
         hasColonyShipFramework: 0, // other systems (som)
         hasConsciousnessUplink: 0, // other systems (som)
         hasCrew: false,
         hasDataNet: 0,
+        hasDeadReckoner: 0, // upgrades (dnd)
         hasEmergencyAccelerator: 0,
+        hasFortifiedHull: false,
         hasHiveJoining: 0, // other systems (pw)
         hasHolographicMantle: 0,
         hasPowersap: 0, // other systems (som)
+        hasRadioArray: 0, // upgrades (dnd)
         hasReconfigurationSystem: 0,
+        hasReinforcedBulkhead: 0,
+        hasRepairDrones: 0, // upgrades (dnd)
         hasRootSystem: 0, // other systems (som)
         hasSelfDestructSystem: 0,
-        hasSpaceStationFramework: 0, // other systems (som)
-        hasAfterburners: 0, // upgrades (dnd)
-        hasCaptainsChair: 0, // upgrades (dnd)
-        hasDeadReckoner: 0, // upgrades (dnd)
-        hasRadioArray: 0, // upgrades (dnd)
-        hasRepairDrones: 0, // upgrades (dnd)
         hasSensorProbe: 0, // upgrades (dnd)
+        hasSpaceStationFramework: 0, // other systems (som)
         isSetDefaultCrewSkillValues: true,
         isUseStrictRules: 1,
         networkNode: {},
