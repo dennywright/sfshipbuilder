@@ -481,7 +481,7 @@
     {
       "id": "guest-quarters-common",
       "source": "scr",
-      "name": "Guest Quarters (common)",
+      "name": "Guest Quarters (common; 8 guests)",
       "numBays": 1,
       "sizes": [
         "Tiny",
@@ -499,7 +499,7 @@
     {
       "id": "guest-quarters-good",
       "source": "scr",
-      "name": "Guest Quarters (good)",
+      "name": "Guest Quarters (good; 4 guests)",
       "numBays": 1,
       "sizes": [
         "Tiny",
@@ -517,7 +517,7 @@
     {
       "id": "guest-quarters-luxurious",
       "source": "scr",
-      "name": "Guest Quarters (luxurious)",
+      "name": "Guest Quarters (luxurious; 2 guests)",
       "numBays": 1,
       "sizes": [
         "Tiny",
