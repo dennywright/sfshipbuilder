@@ -27,7 +27,12 @@
       <Nav :params="params" :frame="frame"></Nav>
 
       <!-- Summary -->
-      <Summary :totalBpCost="totalBpCost" :bpBudget="tier.bpBudget" :totalPcuCost="totalPcuCost" :pcuBudget="pcuBudget">
+      <Summary
+        :totalBpCost="totalBpCost"
+        :bpBudget="tier.bpBudget"
+        :totalPcuCost="totalPcuCost"
+        :pcuBudget="pcuBudget"
+      >
       </Summary>
     </div>
     <!-- sidebar -->
@@ -43,16 +48,23 @@
         <h1 id="title">Starforger RPG Ship Builder</h1>
 
         <div class="app-header__logo">
-          <img src="./img/starfinder-logo-xs.png" width="150" height="auto" alt="Starfinder Logo" />
+          <img
+            src="./img/starfinder-logo-xs.png"
+            width="150"
+            height="auto"
+            alt="Starfinder Logo"
+          />
         </div>
       </header>
 
       <div>
         <p>
           Thanks to James Turner
-          <a href="https://twitter.com/james_c_turner">(@james_c_turner)</a> for creating the
-          original
-          <a href="http://jamesturneronline.net/starfinder-ship-builder/">Starfinder RPG Ship Builder</a>
+          <a href="https://twitter.com/james_c_turner">(@james_c_turner)</a> for
+          creating the original
+          <a href="http://jamesturneronline.net/starfinder-ship-builder/"
+            >Starfinder RPG Ship Builder</a
+          >
         </p>
       </div>
 
@@ -102,7 +114,11 @@
       />
 
       <!-- Sources -->
-      <Sources :sources="sources" :params="params" @updateCrew="setDefaultCrewSkillValues"></Sources>
+      <Sources
+        :sources="sources"
+        :params="params"
+        @updateCrew="setDefaultCrewSkillValues"
+      ></Sources>
 
       <!--
       | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -125,22 +141,34 @@
                 Sort by:
                 <div class="radio">
                   <label style="display: inline-block; margin-right: 1rem">
-                    <input type="radio" name="selectSampleShipSortOrder" value="name"
-                      v-model="selectSampleShipSortOrder" />
+                    <input
+                      type="radio"
+                      name="selectSampleShipSortOrder"
+                      value="name"
+                      v-model="selectSampleShipSortOrder"
+                    />
                     Name
                   </label>
                 </div>
                 <div class="radio">
                   <label style="display: inline-block; margin-right: 1rem">
-                    <input type="radio" name="selectSampleShipSortOrder" value="size"
-                      v-model="selectSampleShipSortOrder" />
+                    <input
+                      type="radio"
+                      name="selectSampleShipSortOrder"
+                      value="size"
+                      v-model="selectSampleShipSortOrder"
+                    />
                     Size
                   </label>
                 </div>
                 <div class="radio">
                   <label style="display: inline-block; margin-right: 1rem">
-                    <input type="radio" name="selectSampleShipSortOrder" value="tier"
-                      v-model="selectSampleShipSortOrder" />
+                    <input
+                      type="radio"
+                      name="selectSampleShipSortOrder"
+                      value="tier"
+                      v-model="selectSampleShipSortOrder"
+                    />
                     Tier
                   </label>
                 </div>
@@ -149,9 +177,16 @@
           </div>
 
           <div>
-            <select class="form-control" id="sampleShipSelect" @change="inputSampleShipParams">
+            <select
+              class="form-control"
+              id="sampleShipSelect"
+              @change="inputSampleShipParams"
+            >
               <option value="none">None</option>
-              <option v-for="option in selectOptionsSampleShip" :value="option.id">
+              <option
+                v-for="option in selectOptionsSampleShip"
+                :value="option.id"
+              >
                 {{ getSampleShipOptionName(option) }}
               </option>
             </select>
@@ -171,11 +206,23 @@
         </header>
 
         <div class="form-horizontal form-group">
-          <button class="btn btn-lg btn-primary btn-gap" @click="filePick">Load Ship</button>
-          <input type="file" id="fileInput" style="display: none" ref="fileInput" accept="application/json"
-            @change="fileLoad" />
-          <button class="btn btn-lg btn-primary btn-gap" @click="fileSave">Save Ship</button>
-          <button class="btn btn-lg btn-primary" @click="clearAll">Clear All</button>
+          <button class="btn btn-lg btn-primary btn-gap" @click="filePick">
+            Load Ship
+          </button>
+          <input
+            type="file"
+            id="fileInput"
+            style="display: none"
+            ref="fileInput"
+            accept="application/json"
+            @change="fileLoad"
+          />
+          <button class="btn btn-lg btn-primary btn-gap" @click="fileSave">
+            Save Ship
+          </button>
+          <button class="btn btn-lg btn-primary" @click="clearAll">
+            Clear All
+          </button>
         </div>
       </div>
 
@@ -193,16 +240,32 @@
         <div class="box__select">
           <div class="form-group">
             <label for="shipName">Ship Name or Class</label>
-            <input type="text" id="shipName" v-model="params.shipName" class="form-control input-lg" />
+            <input
+              type="text"
+              id="shipName"
+              v-model="params.shipName"
+              class="form-control input-lg"
+            />
           </div>
           <div class="form-group">
             <label for="shipConcept">Concept</label>
-            <textarea id="shipConcept" cols="30" rows="3" v-model="params.shipConcept" class="form-control"></textarea>
+            <textarea
+              id="shipConcept"
+              cols="30"
+              rows="3"
+              v-model="params.shipConcept"
+              class="form-control"
+            ></textarea>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" id="isUseStrictRules" v-model="params.isUseStrictRules" />
-              Use strict ship building rules from <em>Starfinder Core Rules</em>?
+              <input
+                type="checkbox"
+                id="isUseStrictRules"
+                v-model="params.isUseStrictRules"
+              />
+              Use strict ship building rules from
+              <em>Starfinder Core Rules</em>?
             </label>
           </div>
         </div>
@@ -220,7 +283,12 @@
         <div class="box__select">
           <div class="form-group">
             <label for="tierSelect">Tier</label>
-            <select class="form-control" id="tierSelect" v-model="params.tierId" @change="setDefaultCrewSkillValues">
+            <select
+              class="form-control"
+              id="tierSelect"
+              v-model="params.tierId"
+              @change="setDefaultCrewSkillValues"
+            >
               <option v-for="option in selectOptions.tier" :value="option.id">
                 {{ option.name }}
               </option>
@@ -228,13 +296,18 @@
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" id="isSetDefaultCrewSkillValues" v-model="params.isSetDefaultCrewSkillValues" />
+              <input
+                type="checkbox"
+                id="isSetDefaultCrewSkillValues"
+                v-model="params.isSetDefaultCrewSkillValues"
+              />
               Automatically update crew skill ranks when levelling up?
             </label>
           </div>
         </div>
         <div class="box__info">
-          <strong>Build Point Budget</strong>: {{ tier.bpBudget }}; <strong>HP Increase</strong>:
+          <strong>Build Point Budget</strong>: {{ tier.bpBudget }};
+          <strong>HP Increase</strong>:
           {{ tier.hpIncrease }}
         </div>
       </div>
@@ -252,7 +325,13 @@
         <div class="box__select">
           <div class="form-group">
             <label for="frameSelect">Frame</label>
-            <select name="frame" id="frameSelect" class="form-control" v-model="params.frameId" @change="updateFrame">
+            <select
+              name="frame"
+              id="frameSelect"
+              class="form-control"
+              v-model="params.frameId"
+              @change="updateFrame"
+            >
               <option v-for="option in selectOptions.frame" :value="option.id">
                 {{ option.name }}
               </option>
@@ -260,11 +339,13 @@
           </div>
         </div>
         <div class="box__info">
-          <strong>Size</strong> {{ frame.size }}; <strong>Maneuverability</strong>
-          {{ frame.maneuverability }}; <strong>HP</strong> {{ hp }}; <strong>DT</strong>
-          {{ frame.dt }}; <strong>CT</strong> {{ criticalThreshold }};
-          <strong>Expansion Bays</strong> {{ frame.expansionBays }}; <strong>Minimum Crew</strong>
-          {{ frame.minCrew }}; <strong>Maximum Crew</strong> {{ frame.maxCrew }}
+          <strong>Size</strong> {{ frame.size }};
+          <strong>Maneuverability</strong> {{ frame.maneuverability }};
+          <strong>HP</strong> {{ hp }}; <strong>DT</strong> {{ frame.dt }};
+          <strong>CT</strong> {{ criticalThreshold }};
+          <strong>Expansion Bays</strong> {{ frame.expansionBays }};
+          <strong>Minimum Crew</strong> {{ frame.minCrew }};
+          <strong>Maximum Crew</strong> {{ frame.maxCrew }}
         </div>
         <div class="box__cost">
           <svg class="icon">
@@ -292,9 +373,16 @@
               <div class="col-sm-2-3">
                 <div class="form-group">
                   <label for="customFrameBase">Use this frame as a base:</label>
-                  <select name="customFrameBase" id="customFrameBase" class="form-control"
-                    v-model="params.customFrameBaseId">
-                    <option v-for="option in selectOptionsBaseFrame" :value="option.id">
+                  <select
+                    name="customFrameBase"
+                    id="customFrameBase"
+                    class="form-control"
+                    v-model="params.customFrameBaseId"
+                  >
+                    <option
+                      v-for="option in selectOptionsBaseFrame"
+                      :value="option.id"
+                    >
                       {{ option.name }}
                     </option>
                   </select>
@@ -315,7 +403,12 @@
           <div class="box__select col-sm-1-2 col-lg-1-2">
             <div class="form-group">
               <label for="customFrameName">Name</label>
-              <input name="customFrameName" id="customFrameName" class="form-control" v-model="params.customFrame.name" />
+              <input
+                name="customFrameName"
+                id="customFrameName"
+                class="form-control"
+                v-model="params.customFrame.name"
+              />
             </div>
           </div>
 
@@ -323,8 +416,16 @@
           <div class="box__select col-sm-1-2 col-lg-1-4">
             <div class="form-group">
               <label for="customFrameSize">Size</label>
-              <select name="customFrameSize" id="customFrameSize" class="form-control" v-model="params.customFrame.size">
-                <option v-for="option in selectOptions.sizeCategory" :value="option.id">
+              <select
+                name="customFrameSize"
+                id="customFrameSize"
+                class="form-control"
+                v-model="params.customFrame.size"
+              >
+                <option
+                  v-for="option in selectOptions.sizeCategory"
+                  :value="option.id"
+                >
                   {{ option.id }}
                 </option>
               </select>
@@ -335,8 +436,12 @@
           <div class="box__select col-sm-1-2 col-lg-1-4">
             <div class="form-group">
               <label for="frameName">Maneuverability</label>
-              <select name="customFrameManeuverability" id="customFrameManeuverability" class="form-control"
-                v-model="params.customFrame.maneuverability">
+              <select
+                name="customFrameManeuverability"
+                id="customFrameManeuverability"
+                class="form-control"
+                v-model="params.customFrame.maneuverability"
+              >
                 <option value="perfect">Perfect</option>
                 <option value="good">Good</option>
                 <option value="average">Average</option>
@@ -350,9 +455,18 @@
           <div class="box__select col-sm-1-2 col-lg-1-4 col-align-bottom">
             <div class="form-group">
               <label for="customFrameHp">HP</label>
-              <input name="customFrameHp" type="number" id="customFrameHp" class="form-control"
+              <input
+                name="customFrameHp"
+                type="number"
+                id="customFrameHp"
+                class="form-control"
                 v-model="params.customFrame.hp"
-                @input="params.customFrame.ct = Math.floor(parseInt(params.customFrame.hp) / 5)" />
+                @input="
+                  params.customFrame.ct = Math.floor(
+                    parseInt(params.customFrame.hp) / 5
+                  )
+                "
+              />
             </div>
           </div>
 
@@ -360,16 +474,30 @@
           <div class="box__select col-sm-1-2 col-lg-1-4 col-align-bottom">
             <div class="form-group">
               <label for="customFrameHpIncrement">HP Increment</label>
-              <input name="customFrameHpIncrement" type="number" id="customFrameHpIncrement" class="form-control"
-                v-model="params.customFrame.hpIncrement" />
+              <input
+                name="customFrameHpIncrement"
+                type="number"
+                id="customFrameHpIncrement"
+                class="form-control"
+                v-model="params.customFrame.hpIncrement"
+              />
             </div>
           </div>
 
           <!-- Damage Threshold -->
           <div class="box__select col-sm-1-2 col-lg-1-4 col-align-bottom">
             <div class="form-group">
-              <label for="customFrameDt">Damage Threshold<br /><small>(&ldquo;n/a&rdquo; or number)</small></label>
-              <input name="customFrameDt" id="customFrameDt" class="form-control" v-model="params.customFrame.dt" />
+              <label for="customFrameDt"
+                >Damage Threshold<br /><small
+                  >(&ldquo;n/a&rdquo; or number)</small
+                ></label
+              >
+              <input
+                name="customFrameDt"
+                id="customFrameDt"
+                class="form-control"
+                v-model="params.customFrame.dt"
+              />
             </div>
           </div>
 
@@ -377,8 +505,13 @@
           <div class="box__select col-sm-1-2 col-lg-1-4 col-align-bottom">
             <div class="form-group">
               <label for="customFrameCt">Crit. Threshold</label>
-              <input name="customFrameCt" type="number" id="customFrameCt" class="form-control"
-                v-model="params.customFrame.ct" />
+              <input
+                name="customFrameCt"
+                type="number"
+                id="customFrameCt"
+                class="form-control"
+                v-model="params.customFrame.ct"
+              />
             </div>
           </div>
 
@@ -387,29 +520,65 @@
             <p>Weapon Mounts</p>
 
             <div class="box--flex">
-              <div v-for="position in ['forward', 'port', 'starboard', 'aft', 'turret']" class="col-sm-1-3 col-lg-1-5">
+              <div
+                v-for="position in [
+                  'forward',
+                  'port',
+                  'starboard',
+                  'aft',
+                  'turret',
+                ]"
+                class="col-sm-1-3 col-lg-1-5"
+              >
                 <div class="custom-weapon-mount-position">
                   <span>{{ position.toTitleCase() }}</span>
-                  <button @click="addCustomFrameMount(position)" class="btn btn-primary btn-sm">
+                  <button
+                    @click="addCustomFrameMount(position)"
+                    class="btn btn-primary btn-sm"
+                  >
                     <svg class="icon">
                       <use xlink:href="#icon-plus" />
                     </svg>
                   </button>
                 </div>
 
-                <div v-for="(mount, mountIndex) in params.customFrame.mounts[position]"
-                  class="form-group form-group--custom-frame-mount">
-                  <select :id="'customFrame' + position + 'Mount' + mountIndex" class="form-control"
-                    v-model="params.customFrame.mounts[position][mountIndex]" @change="setWeaponMounts(frame.mounts)">
+                <div
+                  v-for="(mount, mountIndex) in params.customFrame.mounts[
+                    position
+                  ]"
+                  class="form-group form-group--custom-frame-mount"
+                >
+                  <select
+                    :id="'customFrame' + position + 'Mount' + mountIndex"
+                    class="form-control"
+                    v-model="params.customFrame.mounts[position][mountIndex]"
+                    @change="setWeaponMounts(frame.mounts)"
+                  >
                     <option value="light">Light</option>
-                    <option v-if="['heavy', 'capital'].indexOf(customFrameSize.maxMountWeight) != -1" value="heavy">
+                    <option
+                      v-if="
+                        ['heavy', 'capital'].indexOf(
+                          customFrameSize.maxMountWeight
+                        ) != -1
+                      "
+                      value="heavy"
+                    >
                       Heavy
                     </option>
-                    <option v-if="position != 'turret' && customFrameSize.maxMountWeight == 'capital'" value="capital">
+                    <option
+                      v-if="
+                        position != 'turret' &&
+                        customFrameSize.maxMountWeight == 'capital'
+                      "
+                      value="capital"
+                    >
                       Capital
                     </option>
                   </select>
-                  <button class="btn btn-danger btn-sm" @click="removeCustomFrameMount(position, mountIndex)">
+                  <button
+                    class="btn btn-danger btn-sm"
+                    @click="removeCustomFrameMount(position, mountIndex)"
+                  >
                     <svg class="icon">
                       <use xlink:href="#icon-trash" />
                     </svg>
@@ -423,8 +592,13 @@
           <div class="box__select col-sm-1-2 col-lg-1-4">
             <div class="form-group">
               <label for="customFrameExpansionBays">Expansion Bays</label>
-              <input name="customFrameExpansionBays" type="number" id="customFrameExpansionBays" class="form-control"
-                v-model="params.customFrame.expansionBays" />
+              <input
+                name="customFrameExpansionBays"
+                type="number"
+                id="customFrameExpansionBays"
+                class="form-control"
+                v-model="params.customFrame.expansionBays"
+              />
             </div>
           </div>
 
@@ -432,8 +606,13 @@
           <div class="box__select col-sm-1-2 col-lg-1-4">
             <div class="form-group">
               <label for="customFrameMinCrew">Min. Crew</label>
-              <input name="customFrameMinCrew" type="number" id="customFrameMinCrew" class="form-control"
-                v-model="params.customFrame.minCrew" />
+              <input
+                name="customFrameMinCrew"
+                type="number"
+                id="customFrameMinCrew"
+                class="form-control"
+                v-model="params.customFrame.minCrew"
+              />
             </div>
           </div>
 
@@ -441,8 +620,13 @@
           <div class="box__select col-sm-1-2 col-lg-1-4">
             <div class="form-group">
               <label for="customFrameMaxCrew">Max. Crew</label>
-              <input name="customFrameMaxCrew" type="number" id="customFrameMaxCrew" class="form-control"
-                v-model="params.customFrame.maxCrew" />
+              <input
+                name="customFrameMaxCrew"
+                type="number"
+                id="customFrameMaxCrew"
+                class="form-control"
+                v-model="params.customFrame.maxCrew"
+              />
             </div>
           </div>
 
@@ -450,8 +634,13 @@
           <div class="box__select col-sm-1-2 col-lg-1-4">
             <div class="form-group">
               <label for="customFrameBpCost">BP Cost</label>
-              <input name="customFrameBpCost" type="number" id="customFrameBpCost" class="form-control"
-                v-model="params.customFrame.bpCost" />
+              <input
+                name="customFrameBpCost"
+                type="number"
+                id="customFrameBpCost"
+                class="form-control"
+                v-model="params.customFrame.bpCost"
+              />
             </div>
           </div>
         </div>
@@ -482,8 +671,12 @@
         </div>
         <div class="checkbox" v-if="params.hasCrew">
           <label>
-            <input type="checkbox" id="hasCrew" v-model="params.isSetDefaultCrewSkillValues"
-              @change="setDefaultCrewSkillValues" />
+            <input
+              type="checkbox"
+              id="hasCrew"
+              v-model="params.isSetDefaultCrewSkillValues"
+              @change="setDefaultCrewSkillValues"
+            />
             Set default crew skill values?
           </label>
         </div>
@@ -491,9 +684,14 @@
           <div class="cost__item">
             <span class="cost__name">Complement</span>
             <span class="cost__values">
-              <span class="cost__current" v-bind:class="{ 'cost__current--danger': !isComplementValid }">{{ complement
-              }}</span>
-              <span class="cost__budget">({{ this.frame.minCrew }}&ndash;{{ this.frame.maxCrew }})</span>
+              <span
+                class="cost__current"
+                v-bind:class="{ 'cost__current--danger': !isComplementValid }"
+                >{{ complement }}</span
+              >
+              <span class="cost__budget"
+                >({{ this.frame.minCrew }}&ndash;{{ this.frame.maxCrew }})</span
+              >
             </span>
           </div>
         </div>
@@ -505,29 +703,57 @@
 
           <div class="checkbox">
             <label>
-              <input type="checkbox" v-model="params.crewSkills[role.id].hasRole" />
+              <input
+                type="checkbox"
+                v-model="params.crewSkills[role.id].hasRole"
+              />
               {{ role.hasRoleQuestion }}
             </label>
           </div>
 
           <div v-if="params.crewSkills[role.id].hasRole" class="crew__role">
             <!-- Officers -->
-            <div class="crew__officers" v-if="params.crewSkills[role.id].countOfficers !== undefined">
+            <div
+              class="crew__officers"
+              v-if="params.crewSkills[role.id].countOfficers !== undefined"
+            >
               <div class="box--flex">
                 <!-- number of officers -->
-                <div class="crew__officers__count form-group col-sm-1-2"
-                  v-if="typeof params.crewSkills[role.id].countOfficers !== 'undefined'">
-                  <label :for="role.id + '_countOfficers'">Number of officers</label>
-                  <input type="number" :id="role.id + '_countOfficers'" v-model="params.crewSkills[role.id].countOfficers"
-                    class="form-control" />
+                <div
+                  class="crew__officers__count form-group col-sm-1-2"
+                  v-if="
+                    typeof params.crewSkills[role.id].countOfficers !==
+                    'undefined'
+                  "
+                >
+                  <label :for="role.id + '_countOfficers'"
+                    >Number of officers</label
+                  >
+                  <input
+                    type="number"
+                    :id="role.id + '_countOfficers'"
+                    v-model="params.crewSkills[role.id].countOfficers"
+                    class="form-control"
+                  />
                 </div>
 
                 <!-- officer team size -->
-                <div class="crew__officers__team-size form-group col-sm-1-2"
-                  v-if="typeof params.crewSkills[role.id].countOfficerCrew !== 'undefined'">
-                  <label :for="role.id + '_countOfficerCrew'">Size of crew in each team</label>
-                  <input type="number" :id="role.id + '_countOfficerCrew'"
-                    v-model="params.crewSkills[role.id].countOfficerCrew" class="form-control" />
+                <div
+                  class="crew__officers__team-size form-group col-sm-1-2"
+                  v-if="
+                    typeof params.crewSkills[role.id].countOfficerCrew !==
+                    'undefined'
+                  "
+                >
+                  <label :for="role.id + '_countOfficerCrew'"
+                    >Size of crew in each team</label
+                  >
+                  <input
+                    type="number"
+                    :id="role.id + '_countOfficerCrew'"
+                    v-model="params.crewSkills[role.id].countOfficerCrew"
+                    class="form-control"
+                  />
                 </div>
               </div>
             </div>
@@ -544,48 +770,90 @@
                   <!-- Skill proficiency -->
                   <div class="crew__skill__ranks checkbox col-sm-1-2">
                     <label>
-                      <input type="checkbox" v-model="params.crewSkills[role.id].skills[skillId].hasProficiency" />{{
-                        `Proficiency +${params.crewSkills[role.id].skills[skillId].hasProficiency
-                          ? skillProficiency
-                          : 0
-                          }`
+                      <input
+                        type="checkbox"
+                        v-model="
+                          params.crewSkills[role.id].skills[skillId]
+                            .hasProficiency
+                        "
+                      />{{
+                        `Proficiency +${
+                          params.crewSkills[role.id].skills[skillId]
+                            .hasProficiency
+                            ? skillProficiency
+                            : 0
+                        }`
                       }}
                     </label>
                   </div>
                   <!-- Skill expertise -->
                   <div class="crew__skill__ranks checkbox col-sm-1-2">
-                    <label v-if="params.crewSkills[role.id].skills[skillId].hasProficiency &&
-                        skillId != 'gunnery'
-                        ">
-                      <input type="checkbox" v-model="params.crewSkills[role.id].skills[skillId].hasExpertise" />{{
-                        `Expertise +${params.crewSkills[role.id].skills[skillId].hasExpertise
-                          ? skillProficiency
-                          : 0
-                          }`
+                    <label
+                      v-if="
+                        params.crewSkills[role.id].skills[skillId]
+                          .hasProficiency && skillId != 'gunnery'
+                      "
+                    >
+                      <input
+                        type="checkbox"
+                        v-model="
+                          params.crewSkills[role.id].skills[skillId]
+                            .hasExpertise
+                        "
+                      />{{
+                        `Expertise +${
+                          params.crewSkills[role.id].skills[skillId]
+                            .hasExpertise
+                            ? skillProficiency
+                            : 0
+                        }`
                       }}
                     </label>
                   </div>
                   <!-- Skill mod -->
                   <div class="crew__skill__mod form-group col-sm-1-2">
                     <label for="role.id + '_' + skillId + '_mod'">Mod</label>
-                    <input type="number" class="form-control" min="-1" max="5" :id="role.id + '_' + skillId + '_mod'"
-                      v-model="params.crewSkills[role.id].skills[skillId].modifier" />
+                    <input
+                      type="number"
+                      class="form-control"
+                      min="-1"
+                      max="5"
+                      :id="role.id + '_' + skillId + '_mod'"
+                      v-model="
+                        params.crewSkills[role.id].skills[skillId].modifier
+                      "
+                    />
                   </div>
                 </div>
 
                 <!-- Starfinder skill -->
                 <div v-else>
                   <!-- Skill ranks -->
-                  <div class="crew__skill__ranks form-group col-sm-1-2" v-if="getItemById('skill', skillId).hasRanks">
-                    <label for="role.id + '_' + skillId + '_ranks'">Ranks</label>
-                    <input type="number" class="form-control" :id="role.id + '_' + skillId + '_ranks'"
-                      v-model="params.crewSkills[role.id].skills[skillId].ranks" />
+                  <div
+                    class="crew__skill__ranks form-group col-sm-1-2"
+                    v-if="getItemById('skill', skillId).hasRanks"
+                  >
+                    <label for="role.id + '_' + skillId + '_ranks'"
+                      >Ranks</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      :id="role.id + '_' + skillId + '_ranks'"
+                      v-model="params.crewSkills[role.id].skills[skillId].ranks"
+                    />
                   </div>
                   <!-- Skill mod -->
                   <div class="crew__skill__mod form-group col-sm-1-2">
                     <label for="role.id + '_' + skillId + '_mod'">Mod</label>
-                    <input type="number" class="form-control" :id="role.id + '_' + skillId + '_mod'"
-                      v-model="params.crewSkills[role.id].skills[skillId].modifier" />
+                    <input
+                      type="number"
+                      class="form-control"
+                      :id="role.id + '_' + skillId + '_mod'"
+                      v-model="
+                        params.crewSkills[role.id].skills[skillId].modifier
+                      "
+                    />
                   </div>
                 </div>
               </div>
@@ -628,8 +896,15 @@
         <div class="box__select">
           <div class="form-group">
             <label for="crewQuartersSelect">Crew Quarters</label>
-            <select id="crewQuartersSelect" class="form-control" v-model="params.crewQuartersId">
-              <option v-for="option in selectOptionsCrewQuarters" :value="option.id">
+            <select
+              id="crewQuartersSelect"
+              class="form-control"
+              v-model="params.crewQuartersId"
+            >
+              <option
+                v-for="option in selectOptionsCrewQuarters"
+                :value="option.id"
+              >
                 {{ option.name }}
               </option>
             </select>
@@ -659,7 +934,8 @@
           <p class="text-warning">NOTE: Supercolossal ships can have either:</p>
           <ul>
             <li class="text-warning">
-              One Supercolossal power core, and up to four Huge or Gargantuan cores, or
+              One Supercolossal power core, and up to four Huge or Gargantuan
+              cores, or
             </li>
             <li class="text-warning">Up to five Colossal power cores</li>
           </ul>
@@ -670,10 +946,17 @@
             <!-- power core -->
             <div class="form-group">
               <label :for="'powerCoreSelect_' + i">Power Core {{ i }}</label>
-              <select :id="'powerCoreSelect_' + i" class="form-control" v-model="params.powerCoreIds[i - 1]"
-                @change="maybeResetPowerCoreIds(i - 1)">
+              <select
+                :id="'powerCoreSelect_' + i"
+                class="form-control"
+                v-model="params.powerCoreIds[i - 1]"
+                @change="maybeResetPowerCoreIds(i - 1)"
+              >
                 <template v-for="option in getPowerCoreOptions(i - 1)">
-                  <option :value="option.id" v-html="getPowerCoreOptionName(option)"></option>
+                  <option
+                    :value="option.id"
+                    v-html="getPowerCoreOptionName(option)"
+                  ></option>
                 </template>
               </select>
             </div>
@@ -685,24 +968,36 @@
                 <!-- none -->
                 <div class="radio">
                   <label>
-                    <input type="radio" :name="'selectPowerCoreSpecialMaterial' + i" value="none"
-                      v-model="params.powerCoreSpecialMaterials[i - 1]" />
+                    <input
+                      type="radio"
+                      :name="'selectPowerCoreSpecialMaterial' + i"
+                      value="none"
+                      v-model="params.powerCoreSpecialMaterials[i - 1]"
+                    />
                     None
                   </label>
                 </div>
                 <!-- abysium -->
                 <div class="radio">
                   <label>
-                    <input type="radio" :name="'selectPowerCoreSpecialMaterial' + i" value="abysium"
-                      v-model="params.powerCoreSpecialMaterials[i - 1]" />
+                    <input
+                      type="radio"
+                      :name="'selectPowerCoreSpecialMaterial' + i"
+                      value="abysium"
+                      v-model="params.powerCoreSpecialMaterials[i - 1]"
+                    />
                     Abysium (+25% PCU output; radiation hazard; +2 BP)
                   </label>
                 </div>
                 <!-- djezet -->
                 <div class="radio">
                   <label>
-                    <input type="radio" :name="'selectPowerCoreSpecialMaterial' + i" value="djezet"
-                      v-model="params.powerCoreSpecialMaterials[i - 1]" />
+                    <input
+                      type="radio"
+                      :name="'selectPowerCoreSpecialMaterial' + i"
+                      value="djezet"
+                      v-model="params.powerCoreSpecialMaterials[i - 1]"
+                    />
                     Djezet (+10% PCU output to expansion bays only; +1 BP)
                   </label>
                 </div>
@@ -734,7 +1029,11 @@
         <div class="box__select">
           <div class="form-group">
             <label for="thrustersSelect">Thrusters</label>
-            <select id="thrustersSelect" class="form-control" v-model="params.thrustersId">
+            <select
+              id="thrustersSelect"
+              class="form-control"
+              v-model="params.thrustersId"
+            >
               <template v-for="option in selectOptionsThruster">
                 <option :value="option.id">{{ option.name }}</option>
               </template>
@@ -748,22 +1047,37 @@
               <!-- none -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="thrustersMaterialId" value="none" v-model="params.thrustersMaterialId" />
+                  <input
+                    type="radio"
+                    name="thrustersMaterialId"
+                    value="none"
+                    v-model="params.thrustersMaterialId"
+                  />
                   None
                 </label>
               </div>
               <!-- horacalcum -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="thrustersMaterialId" value="horacalcum"
-                    v-model="params.thrustersMaterialId" />
-                  Horacalcum (+1 max speed; -1 Piloting check penalty based on max speed)
+                  <input
+                    type="radio"
+                    name="thrustersMaterialId"
+                    value="horacalcum"
+                    v-model="params.thrustersMaterialId"
+                  />
+                  Horacalcum (+1 max speed; -1 Piloting check penalty based on
+                  max speed)
                 </label>
               </div>
               <!-- inubrix -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="thrustersMaterialId" value="inubrix" v-model="params.thrustersMaterialId" />
+                  <input
+                    type="radio"
+                    name="thrustersMaterialId"
+                    value="inubrix"
+                    v-model="params.thrustersMaterialId"
+                  />
                   Inubrix (+1 to Piloting checks to avoid hazards)
                 </label>
               </div>
@@ -773,10 +1087,17 @@
         </div>
 
         <!-- booster thrusters-->
-        <div class="box__select" v-if="params.sourcesInUse.som && hasBoosterThrusterHousing">
+        <div
+          class="box__select"
+          v-if="params.sourcesInUse.som && hasBoosterThrusterHousing"
+        >
           <div class="form-group">
             <label for="thrustersBoosterSelect">Thrusters Booster</label>
-            <select id="thrustersBoosterSelect" class="form-control" v-model="params.thrustersBoosterId">
+            <select
+              id="thrustersBoosterSelect"
+              class="form-control"
+              v-model="params.thrustersBoosterId"
+            >
               <template v-for="option in selectOptionsThruster">
                 <option :value="option.id">{{ option.name }}</option>
               </template>
@@ -790,24 +1111,37 @@
               <!-- none -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="thrustersBoosterMaterialId" value="none"
-                    v-model="params.thrustersBoosterMaterialId" />
+                  <input
+                    type="radio"
+                    name="thrustersBoosterMaterialId"
+                    value="none"
+                    v-model="params.thrustersBoosterMaterialId"
+                  />
                   None
                 </label>
               </div>
               <!-- horacalcum -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="thrustersBoosterMaterialId" value="horacalcum"
-                    v-model="params.thrustersBoosterMaterialId" />
-                  Horacalcum (+1 max speed; -1 Piloting check penalty based on max speed)
+                  <input
+                    type="radio"
+                    name="thrustersBoosterMaterialId"
+                    value="horacalcum"
+                    v-model="params.thrustersBoosterMaterialId"
+                  />
+                  Horacalcum (+1 max speed; -1 Piloting check penalty based on
+                  max speed)
                 </label>
               </div>
               <!-- inubrix -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="thrustersBoosterMaterialId" value="inubrix"
-                    v-model="params.thrustersBoosterMaterialId" />
+                  <input
+                    type="radio"
+                    name="thrustersBoosterMaterialId"
+                    value="inubrix"
+                    v-model="params.thrustersBoosterMaterialId"
+                  />
                   Inubrix (+1 to Piloting checks to avoid hazards)
                 </label>
               </div>
@@ -818,9 +1152,14 @@
         <!-- thrusters booster -->
 
         <div class="box__info">
-          <strong>Speed (in hexes)</strong> {{ thrusters.speed + thrustersBooster.speed }};
+          <strong>Speed (in hexes)</strong>
+          {{ thrusters.speed + thrustersBooster.speed }};
           <strong>Piloting Modifier</strong>
-          {{ getPrefixedModifier(thrusters.pilotingModifier + thrustersBooster.pilotingModifier) }}
+          {{
+            getPrefixedModifier(
+              thrusters.pilotingModifier + thrustersBooster.pilotingModifier
+            )
+          }}
         </div>
         <div class="box__cost">
           <svg class="icon">
@@ -850,7 +1189,11 @@
         <div class="box__select">
           <div class="form-group">
             <label for="armorSelect">Armor</label>
-            <select id="armorSelect" class="form-control" v-model="params.armorId">
+            <select
+              id="armorSelect"
+              class="form-control"
+              v-model="params.armorId"
+            >
               <option v-for="option in selectOptions.armor" :value="option.id">
                 {{ option.name }}
               </option>
@@ -864,29 +1207,49 @@
               <!-- none -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="armorMaterialId" value="none" v-model="params.armorMaterialId" />
+                  <input
+                    type="radio"
+                    name="armorMaterialId"
+                    value="none"
+                    v-model="params.armorMaterialId"
+                  />
                   None
                 </label>
               </div>
               <!-- adamantine-alloy -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="armorMaterialId" value="adamantine-alloy" v-model="params.armorMaterialId" />
+                  <input
+                    type="radio"
+                    name="armorMaterialId"
+                    value="adamantine-alloy"
+                    v-model="params.armorMaterialId"
+                  />
                   Adamantine Alloy (bonus to DT)
                 </label>
               </div>
               <!-- noqual -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="armorMaterialId" value="noqual" v-model="params.armorMaterialId" />
-                  Noqual (bonus to magic officer&apos;s Mysticism DC and to AC and TL against
-                  mystical weapons)
+                  <input
+                    type="radio"
+                    name="armorMaterialId"
+                    value="noqual"
+                    v-model="params.armorMaterialId"
+                  />
+                  Noqual (bonus to magic officer&apos;s Mysticism DC and to AC
+                  and TL against mystical weapons)
                 </label>
               </div>
               <!-- siccatite -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="armorMaterialId" value="siccatite" v-model="params.armorMaterialId" />
+                  <input
+                    type="radio"
+                    name="armorMaterialId"
+                    value="siccatite"
+                    v-model="params.armorMaterialId"
+                  />
                   Siccatite (resist friction from atmosphere)
                 </label>
               </div>
@@ -918,7 +1281,11 @@
         </header>
         <div class="checkbox">
           <label>
-            <input type="checkbox" id="hasAblativeArmor" v-model="params.hasAblativeArmor" />
+            <input
+              type="checkbox"
+              id="hasAblativeArmor"
+              v-model="params.hasAblativeArmor"
+            />
             Include Ablative Armor?
           </label>
         </div>
@@ -926,9 +1293,18 @@
           <div class="box__select">
             <div class="form-group">
               <label for="ablativeArmorSelect">Ablative Armor</label>
-              <select id="ablativeArmorSelect" class="form-control"
-                @change="setDefaultPositionDependentValues('ablativeArmor', 'tempHp')" v-model="params.ablativeArmorId">
-                <option v-for="option in selectOptionsAblativeArmor" :value="option.id">
+              <select
+                id="ablativeArmorSelect"
+                class="form-control"
+                @change="
+                  setDefaultPositionDependentValues('ablativeArmor', 'tempHp')
+                "
+                v-model="params.ablativeArmorId"
+              >
+                <option
+                  v-for="option in selectOptionsAblativeArmor"
+                  :value="option.id"
+                >
                   {{ option.name }}
                 </option>
               </select>
@@ -938,40 +1314,61 @@
             <div class="box--flex">
               <div class="form-group col-sm-1-2 col-lg-1-4">
                 <label for="">Forward</label>
-                <input type="number" class="form-control" v-model="params.ablativeArmorByPosition.forward" />
+                <input
+                  type="number"
+                  class="form-control"
+                  v-model="params.ablativeArmorByPosition.forward"
+                />
               </div>
               <div class="form-group col-sm-1-2 col-lg-1-4">
                 <label for="">Port</label>
-                <input type="number" class="form-control" v-model="params.ablativeArmorByPosition.port" />
+                <input
+                  type="number"
+                  class="form-control"
+                  v-model="params.ablativeArmorByPosition.port"
+                />
               </div>
               <div class="form-group col-sm-1-2 col-lg-1-4">
                 <label for="">Starboard</label>
-                <input type="number" class="form-control" v-model="params.ablativeArmorByPosition.starboard" />
+                <input
+                  type="number"
+                  class="form-control"
+                  v-model="params.ablativeArmorByPosition.starboard"
+                />
               </div>
               <div class="form-group col-sm-1-2 col-lg-1-4">
                 <label for="">Aft</label>
-                <input type="number" class="form-control" v-model="params.ablativeArmorByPosition.aft" />
+                <input
+                  type="number"
+                  class="form-control"
+                  v-model="params.ablativeArmorByPosition.aft"
+                />
               </div>
             </div>
 
-            <p v-if="ablativeArmorByPositionTotal != ablativeArmor.tempHp" class="text-danger">
-              Make sure your ablative armor adds up to {{ ablativeArmor.tempHp }}.
+            <p
+              v-if="ablativeArmorByPositionTotal != ablativeArmor.tempHp"
+              class="text-danger"
+            >
+              Make sure your ablative armor adds up to
+              {{ ablativeArmor.tempHp }}.
             </p>
 
             <p v-if="!isAblativeArmorBalanced" class="text-warning">
-              NOTE: The ship has a -1 penalty to Piloting because temporary HP from ablative armor is
-              not balanced.
+              NOTE: The ship has a -1 penalty to Piloting because temporary HP
+              from ablative armor is not balanced.
             </p>
 
             <p v-if="ablativeArmor.tempHp > hp" class="text-warning">
-              NOTE: The ship has a -1 penalty to Piloting because temporary HP exceeds the ship&apos;s
-              HP.
+              NOTE: The ship has a -1 penalty to Piloting because temporary HP
+              exceeds the ship&apos;s HP.
             </p>
           </div>
 
           <div class="box__info">
-            <strong>Temporary HP</strong> {{ ablativeArmor.tempHp }}; <strong>TL Modifier</strong>
-            {{ ablativeArmor.tlMod }}; <strong>Turn Distance</strong> {{ ablativeArmor.turnMod }}
+            <strong>Temporary HP</strong> {{ ablativeArmor.tempHp }};
+            <strong>TL Modifier</strong> {{ ablativeArmor.tlMod }};
+            <strong>Turn Distance</strong> {{ ablativeArmor.turnMod }}
           </div>
 
           <div class="box__cost">
@@ -995,7 +1392,11 @@
         </header>
         <div class="checkbox">
           <label>
-            <input type="checkbox" id="hasFortifiedHull" v-model="params.hasFortifiedHull" />
+            <input
+              type="checkbox"
+              id="hasFortifiedHull"
+              v-model="params.hasFortifiedHull"
+            />
             Include Fortified Hull?
           </label>
         </div>
@@ -1003,14 +1404,23 @@
           <div class="box__select">
             <div class="form-group">
               <label for="fortifiedHullSelect">Fortified Hull</label>
-              <select v-model="params.fortifiedHullId" id="fortifiedHullSelect" class="form-control">
-                <option v-for="option in selectOptions.fortifiedHull" :value="option.id">
+              <select
+                v-model="params.fortifiedHullId"
+                id="fortifiedHullSelect"
+                class="form-control"
+              >
+                <option
+                  v-for="option in selectOptions.fortifiedHull"
+                  :value="option.id"
+                >
                   {{ option.name }}
                 </option>
               </select>
             </div>
           </div>
-          <div class="box__info"><strong>Bonus To CT</strong> {{ fortifiedHull.bonusToCt }}</div>
+          <div class="box__info">
+            <strong>Bonus To CT</strong> {{ fortifiedHull.bonusToCt }}
+          </div>
           <div class="box__cost">
             <svg class="icon">
               <use xlink:href="#icon-build" />
@@ -1032,30 +1442,42 @@
         </header>
         <div class="checkbox">
           <label>
-            <input type="checkbox" id="hasReinforcedBulkhead" v-model="params.hasReinforcedBulkhead" />
+            <input
+              type="checkbox"
+              id="hasReinforcedBulkhead"
+              v-model="params.hasReinforcedBulkhead"
+            />
             Include Reinforced Bulkhead?
           </label>
         </div>
         <div v-if="params.hasReinforcedBulkhead">
-        <div class="box__select">
-          <div class="form-group">
-            <label for="reinforcedBulkheadSelect">Reinforced Bulkhead</label>
-            <select id="reinforcedBulkheadSelect" class="form-control" v-model="params.reinforcedBulkheadId">
-              <option v-for="option in selectOptions.reinforcedBulkhead" :value="option.id">
-                {{ option.name }}
-              </option>
-            </select>
+          <div class="box__select">
+            <div class="form-group">
+              <label for="reinforcedBulkheadSelect">Reinforced Bulkhead</label>
+              <select
+                id="reinforcedBulkheadSelect"
+                class="form-control"
+                v-model="params.reinforcedBulkheadId"
+              >
+                <option
+                  v-for="option in selectOptions.reinforcedBulkhead"
+                  :value="option.id"
+                >
+                  {{ option.name }}
+                </option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="box__info">
-          <strong>Fortification</strong> {{ reinforcedBulkhead.fortification }}
-        </div>
-        <div class="box__cost">
-          <svg class="icon">
-            <use xlink:href="#icon-build" />
-          </svg>
-          {{ reinforcedBulkhead.bpCost }}
-        </div>
+          <div class="box__info">
+            <strong>Fortification</strong>
+            {{ reinforcedBulkhead.fortification }}
+          </div>
+          <div class="box__cost">
+            <svg class="icon">
+              <use xlink:href="#icon-build" />
+            </svg>
+            {{ reinforcedBulkhead.bpCost }}
+          </div>
         </div>
       </div>
       <!--
@@ -1072,8 +1494,16 @@
         <div class="box__select">
           <div class="form-group">
             <label for="computerSelect">Computer</label>
-            <select name="computer" id="computerSelect" class="form-control" v-model="params.computerId">
-              <option v-for="option in selectOptionsComputer" :value="option.id">
+            <select
+              name="computer"
+              id="computerSelect"
+              class="form-control"
+              v-model="params.computerId"
+            >
+              <option
+                v-for="option in selectOptionsComputer"
+                :value="option.id"
+              >
                 {{ params.sourcesInUse.dnd ? option.dnd.name : option.name }}
               </option>
             </select>
@@ -1082,27 +1512,50 @@
           <!-- network node (Supercolossal ships only) -->
           <div class="form-group" v-if="isSupercolossal">
             <label for="ctNetworkNodes">Network Nodes</label>
-            <input type="number" min="0" :max="networkNodes.max" id="ctNetworkNodes" v-model="params.ctNetworkNodes"
-              class="form-control" />
+            <input
+              type="number"
+              min="0"
+              :max="networkNodes.max"
+              id="ctNetworkNodes"
+              v-model="params.ctNetworkNodes"
+              class="form-control"
+            />
           </div>
 
           <!-- secondary computer (Supercolossal ships only) -->
           <div class="form-group" v-if="isSupercolossal">
             <label for="secondaryComputerSelect">Secondary Computer</label>
-            <select name="secondaryComputer" id="secondaryComputerSelect" class="form-control"
-              v-model="params.secondaryComputerId">
-              <option v-for="option in selectOptionsSecondaryComputer" :value="option.id">
+            <select
+              name="secondaryComputer"
+              id="secondaryComputerSelect"
+              class="form-control"
+              v-model="params.secondaryComputerId"
+            >
+              <option
+                v-for="option in selectOptionsSecondaryComputer"
+                :value="option.id"
+              >
                 {{ params.sourcesInUse.dnd ? option.dnd.name : option.name }}
               </option>
             </select>
           </div>
 
           <!-- dedicated computer -->
-          <div class="form-group" v-if="params.sourcesInUse.som && hasDedicatedComputerHousing">
+          <div
+            class="form-group"
+            v-if="params.sourcesInUse.som && hasDedicatedComputerHousing"
+          >
             <label for="dedicatedComputerSelect">Dedicated Computer</label>
-            <select name="dedicatedComputer" id="dedicatedComputerSelect" class="form-control"
-              v-model="params.dedicatedComputerId">
-              <option v-for="option in selectOptionsDedicatedComputer" :value="option.id">
+            <select
+              name="dedicatedComputer"
+              id="dedicatedComputerSelect"
+              class="form-control"
+              v-model="params.dedicatedComputerId"
+            >
+              <option
+                v-for="option in selectOptionsDedicatedComputer"
+                :value="option.id"
+              >
                 {{ params.sourcesInUse.dnd ? option.dnd.name : option.name }}
               </option>
             </select>
@@ -1156,9 +1609,18 @@
         </header>
         <div class="box__select">
           <div class="form-group">
-            <label for="defensiveCountermeasuresSelect">Defensive Countermeasures</label>
-            <select v-model="params.defensiveCountermeasuresId" id="defensiveCountermeasuresSelect" class="form-control">
-              <option v-for="option in selectOptions.defensiveCountermeasures" :value="option.id">
+            <label for="defensiveCountermeasuresSelect"
+              >Defensive Countermeasures</label
+            >
+            <select
+              v-model="params.defensiveCountermeasuresId"
+              id="defensiveCountermeasuresSelect"
+              class="form-control"
+            >
+              <option
+                v-for="option in selectOptions.defensiveCountermeasures"
+                :value="option.id"
+              >
                 {{ option.name }}
               </option>
             </select>
@@ -1171,25 +1633,38 @@
               <!-- none -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="defensiveCountermeasuresMaterialId" value="none"
-                    v-model="params.defensiveCountermeasuresMaterialId" />
+                  <input
+                    type="radio"
+                    name="defensiveCountermeasuresMaterialId"
+                    value="none"
+                    v-model="params.defensiveCountermeasuresMaterialId"
+                  />
                   None
                 </label>
               </div>
               <!-- horacalcum -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="defensiveCountermeasuresMaterialId" value="horacalcum"
-                    v-model="params.defensiveCountermeasuresMaterialId" />
+                  <input
+                    type="radio"
+                    name="defensiveCountermeasuresMaterialId"
+                    value="horacalcum"
+                    v-model="params.defensiveCountermeasuresMaterialId"
+                  />
                   Horacalcum (decrease enemy weapon speed by 25%)
                 </label>
               </div>
               <!-- siccatite -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="defensiveCountermeasuresMaterialId" value="siccatite"
-                    v-model="params.defensiveCountermeasuresMaterialId" />
-                  Siccatite (increase science officer Computers DC against enemy sensors)
+                  <input
+                    type="radio"
+                    name="defensiveCountermeasuresMaterialId"
+                    value="siccatite"
+                    v-model="params.defensiveCountermeasuresMaterialId"
+                  />
+                  Siccatite (increase science officer Computers DC against enemy
+                  sensors)
                 </label>
               </div>
             </div>
@@ -1225,8 +1700,15 @@
         <div class="box__select">
           <div class="form-group">
             <label for="driftEngineSelect">Hyperdrive</label>
-            <select id="driftEngineSelect" class="form-control" v-model="params.driftEngineId">
-              <option v-for="option in selectOptionsDriftEngine" :value="option.id">
+            <select
+              id="driftEngineSelect"
+              class="form-control"
+              v-model="params.driftEngineId"
+            >
+              <option
+                v-for="option in selectOptionsDriftEngine"
+                :value="option.id"
+              >
                 {{ option.name }}
               </option>
             </select>
@@ -1235,7 +1717,9 @@
         <div class="box__info" v-if="driftEngine.notes !== undefined">
           <em>Note: </em>{{ driftEngine.notes }}
         </div>
-        <div class="box__info"><strong>Jump Distance</strong> {{ driftEngine.engineRating }}</div>
+        <div class="box__info">
+          <strong>Jump Distance</strong> {{ driftEngine.engineRating }}
+        </div>
         <div class="box__cost">
           <svg class="icon">
             <use xlink:href="#icon-build" />
@@ -1258,22 +1742,32 @@
           NOTE: {{ frame.expansionBayInfo }}.
         </p>
         <p v-if="sizeCategory.id == 'Supercolossal'" class="text-warning">
-          NOTE: As a Supercolossal ship, this vessel has {{ Math.floor(frame.bpCost / 10) }} cargo
-          bays in addition to those below.
+          NOTE: As a Supercolossal ship, this vessel has
+          {{ Math.floor(frame.bpCost / 10) }} cargo bays in addition to those
+          below.
         </p>
-        <p v-if="params.sourcesInUse.som &&
-          sizeCategory.multiplier >= 4 &&
-          (params.hasColonyShipFramework || params.hasSpaceStationFramework)
-          " class="text-warning">
-          NOTE: On a colony ship or space station, two thirds of expansion bays must be for civilian
-          use (cargo holds, escape pods, guest quarters, life boats, recreation suites, or others
-          determined by the GM).
+        <p
+          v-if="
+            params.sourcesInUse.som &&
+            sizeCategory.multiplier >= 4 &&
+            (params.hasColonyShipFramework || params.hasSpaceStationFramework)
+          "
+          class="text-warning"
+        >
+          NOTE: On a colony ship or space station, two thirds of expansion bays
+          must be for civilian use (cargo holds, escape pods, guest quarters,
+          life boats, recreation suites, or others determined by the GM).
         </p>
         <div class="cost__item">
           <span class="cost__name">Slots used</span>
           <span class="cost__values">
-            <span class="cost__current" v-bind:class="{ 'cost__current--danger': isExpansionBaysCountOverBudget }">{{
-              expansionBaysCountUsed }}</span>
+            <span
+              class="cost__current"
+              v-bind:class="{
+                'cost__current--danger': isExpansionBaysCountOverBudget,
+              }"
+              >{{ expansionBaysCountUsed }}</span
+            >
             /
             <span class="cost__budget">{{ ctExpansionBaySlots }}</span>
           </span>
@@ -1283,21 +1777,37 @@
             <li>
               <div class="box__header--btns">
                 <h4>
-                  <label :for="'expansionBaySelect' + i">Expansion Bay {{ i + 1 }}</label>
+                  <label :for="'expansionBaySelect' + i"
+                    >Expansion Bay {{ i + 1 }}</label
+                  >
                 </h4>
                 <div>
                   <!-- duplicate -->
-                  <button class="btn btn-primary btn-sm" :disabled="params.isUseStrictRules &&
-                    frame.expansionBays != 'Unlimited' &&
-                    expansionBaysCountUsed >= ctExpansionBaySlots
-                    " @click="params.expansionBayIds.splice(i + 1, 0, params.expansionBayIds[i])">
+                  <button
+                    class="btn btn-primary btn-sm"
+                    :disabled="
+                      params.isUseStrictRules &&
+                      frame.expansionBays != 'Unlimited' &&
+                      expansionBaysCountUsed >= ctExpansionBaySlots
+                    "
+                    @click="
+                      params.expansionBayIds.splice(
+                        i + 1,
+                        0,
+                        params.expansionBayIds[i]
+                      )
+                    "
+                  >
                     <svg class="icon">
                       <use xlink:href="#icon-duplicate" />
                     </svg>
                   </button>
 
                   <!-- delete -->
-                  <button class="btn btn-danger btn-sm" @click="params.expansionBayIds.splice(i, 1)">
+                  <button
+                    class="btn btn-danger btn-sm"
+                    @click="params.expansionBayIds.splice(i, 1)"
+                  >
                     <svg class="icon">
                       <use xlink:href="#icon-trash" />
                     </svg>
@@ -1307,19 +1817,35 @@
 
               <!-- select -->
               <div class="form-group">
-                <select v-model="params.expansionBayIds[i]" :id="'expansionBaySelect' + i" class="form-control">
-                  <option v-for="option in selectOptions.expansionBay" :value="option.id">
+                <select
+                  v-model="params.expansionBayIds[i]"
+                  :id="'expansionBaySelect' + i"
+                  class="form-control"
+                >
+                  <option
+                    v-for="option in selectOptions.expansionBay"
+                    :value="option.id"
+                  >
                     {{
-                      option.name + (option.numBays != 1 ? ' (' + option.numBays + ' Slots)' : '')
+                      option.name +
+                      (option.numBays != 1
+                        ? ' (' + option.numBays + ' Slots)'
+                        : '')
                     }}
                   </option>
                 </select>
               </div>
 
-              <p v-if="frame.size == 'Supercolossal' && expansionBay.id == 'hangar-bay'" class="text-warning">
-                NOTE: Expanding an existing hangar bay to accommodate eight more Medium ships
-                increases the hangar bay’s cost by only 1 BP. Use Custom Components to expand your
-                hangar bay.
+              <p
+                v-if="
+                  frame.size == 'Supercolossal' &&
+                  expansionBay.id == 'hangar-bay'
+                "
+                class="text-warning"
+              >
+                NOTE: Expanding an existing hangar bay to accommodate eight more
+                Medium ships increases the hangar bay’s cost by only 1 BP. Use
+                Custom Components to expand your hangar bay.
               </p>
 
               <div class="box__cost--list">
@@ -1336,8 +1862,12 @@
           </template>
         </ul>
 
-        <p v-if="ctExternalExpansionBays > frame.expansionBays" class="text-danger">
-          You cannot have more external expansion bays than expansion bay slots on the frame.
+        <p
+          v-if="ctExternalExpansionBays > frame.expansionBays"
+          class="text-danger"
+        >
+          You cannot have more external expansion bays than expansion bay slots
+          on the frame.
         </p>
 
         <p v-if="hasHealingPod" class="text-warning">
@@ -1345,7 +1875,10 @@
         </p>
 
         <div class="box__under-box align-right">
-          <button @click="params.expansionBayIds.push('none')" class="btn btn-primary">
+          <button
+            @click="params.expansionBayIds.push('none')"
+            class="btn btn-primary"
+          >
             Create New Expansion Bay
           </button>
         </div>
@@ -1378,7 +1911,11 @@
           <div class="box__select">
             <div class="form-group">
               <label for="antiHackingSystemsSelect">Anti-Hacking Systems</label>
-              <select v-model="params.antiHackingSystemsId" id="antiHackingSystemsSelect" class="form-control">
+              <select
+                v-model="params.antiHackingSystemsId"
+                id="antiHackingSystemsSelect"
+                class="form-control"
+              >
                 <template v-for="option in selectOptions.antiHackingSystems">
                   <option :value="option.id">{{ option.name }}</option>
                 </template>
@@ -1394,13 +1931,24 @@
         </div>
 
         <!-- Anti-Personnel Weapon -->
-        <div class="box__list-item" v-if="!params.isUseStrictRules || sizeCategory.multiplier <= 3">
+        <div
+          class="box__list-item"
+          v-if="!params.isUseStrictRules || sizeCategory.multiplier <= 3"
+        >
           <div class="box__select">
             <div class="form-group">
-              <label for="antiPersonnelWeaponSelect">Anti-Personnel Weapon</label>
-              <select v-model="params.antiPersonnelWeaponId" id="antiPersonnelWeaponSelect" class="form-control">
+              <label for="antiPersonnelWeaponSelect"
+                >Anti-Personnel Weapon</label
+              >
+              <select
+                v-model="params.antiPersonnelWeaponId"
+                id="antiPersonnelWeaponSelect"
+                class="form-control"
+              >
                 <template v-for="option in selectOptionsPersonalWeapon">
-                  <option :value="option.id">{{ option.name }} ({{ option.damage }})</option>
+                  <option :value="option.id">
+                    {{ option.name }} ({{ option.damage }})
+                  </option>
                 </template>
               </select>
             </div>
@@ -1418,7 +1966,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasBiometricLocks">
-                <input type="checkbox" v-model="params.hasBiometricLocks" id="hasBiometricLocks" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasBiometricLocks"
+                  id="hasBiometricLocks"
+                />
                 Biometric Locks
               </label>
             </div>
@@ -1438,10 +1990,16 @@
           <div class="box__select">
             <!-- true/false countermeasures -->
             <div class="box__select box__select--computerCountermeasures">
-              <div class="checkbox" v-for="option in selectOptionsComputerCountermeasures">
+              <div
+                class="checkbox"
+                v-for="option in selectOptionsComputerCountermeasures"
+              >
                 <label :for="'computerCountermeasures_' + option.id">
-                  <input type="checkbox" v-model="params.computerCountermeasures[option.id]"
-                    :id="'computerCountermeasures_' + option.id" />
+                  <input
+                    type="checkbox"
+                    v-model="params.computerCountermeasures[option.id]"
+                    :id="'computerCountermeasures_' + option.id"
+                  />
                   {{ option.name }}
                 </label>
               </div>
@@ -1450,12 +2008,24 @@
             <!-- shock grid -->
             <div class="form-group">
               <label for="shockGridSelect">Shock Grid</label>
-              <select v-model="params.computerCountermeasures.shockGridId" id="shockGridSelect" class="form-control">
-                <option v-for="option in selectOptions.shockGrid" :value="option.id">
+              <select
+                v-model="params.computerCountermeasures.shockGridId"
+                id="shockGridSelect"
+                class="form-control"
+              >
+                <option
+                  v-for="option in selectOptions.shockGrid"
+                  :value="option.id"
+                >
                   {{
                     option.id == 'none'
-                    ? 'None'
-                    : option.name + ' (DC ' + option.dc + ', ' + option.damage + ')'
+                      ? 'None'
+                      : option.name +
+                        ' (DC ' +
+                        option.dc +
+                        ', ' +
+                        option.damage +
+                        ')'
                   }}
                 </option>
               </select>
@@ -1475,7 +2045,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasSelfDestructSystem">
-                <input type="checkbox" v-model="params.hasSelfDestructSystem" id="hasSelfDestructSystem" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasSelfDestructSystem"
+                  id="hasSelfDestructSystem"
+                />
                 Self-Destruct System
               </label>
             </div>
@@ -1493,7 +2067,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasEmergencyAccelerator">
-                <input type="checkbox" v-model="params.hasEmergencyAccelerator" id="hasEmergencyAccelerator" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasEmergencyAccelerator"
+                  id="hasEmergencyAccelerator"
+                />
                 Emergency Accelerator
               </label>
             </div>
@@ -1506,7 +2084,9 @@
             <svg class="icon">
               <use xlink:href="#icon-build" />
             </svg>
-            {{ params.hasEmergencyAccelerator ? 4 * sizeCategory.multiplier : 0 }}
+            {{
+              params.hasEmergencyAccelerator ? 4 * sizeCategory.multiplier : 0
+            }}
           </div>
         </div>
 
@@ -1515,7 +2095,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasHolographicMantle">
-                <input type="checkbox" v-model="params.hasHolographicMantle" id="hasHolographicMantle" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasHolographicMantle"
+                  id="hasHolographicMantle"
+                />
                 Holographic Mantle
               </label>
             </div>
@@ -1537,7 +2121,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasReconfigurationSystem">
-                <input type="checkbox" v-model="params.hasReconfigurationSystem" id="hasReconfigurationSystem" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasReconfigurationSystem"
+                  id="hasReconfigurationSystem"
+                />
                 Reconfiguration System
               </label>
             </div>
@@ -1580,8 +2168,15 @@
         <div class="box__select">
           <div class="form-group">
             <label for="sensorsSelect">Sensors</label>
-            <select v-model="params.sensorsId" id="sensorsSelect" class="form-control">
-              <option v-for="option in selectOptions.sensors" :value="option.id">
+            <select
+              v-model="params.sensorsId"
+              id="sensorsSelect"
+              class="form-control"
+            >
+              <option
+                v-for="option in selectOptions.sensors"
+                :value="option.id"
+              >
                 {{ option.name }}
               </option>
             </select>
@@ -1594,21 +2189,36 @@
               <!-- none -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="sensorsMaterialId" value="none" v-model="params.sensorsMaterialId" />
+                  <input
+                    type="radio"
+                    name="sensorsMaterialId"
+                    value="none"
+                    v-model="params.sensorsMaterialId"
+                  />
                   None
                 </label>
               </div>
               <!-- adamantine-alloy -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="sensorsMaterialId" value="djezet" v-model="params.sensorsMaterialId" />
+                  <input
+                    type="radio"
+                    name="sensorsMaterialId"
+                    value="djezet"
+                    v-model="params.sensorsMaterialId"
+                  />
                   Djezet (increase sensor range)
                 </label>
               </div>
               <!-- noqual -->
               <div class="radio">
                 <label>
-                  <input type="radio" name="sensorsMaterialId" value="noqual" v-model="params.sensorsMaterialId" />
+                  <input
+                    type="radio"
+                    name="sensorsMaterialId"
+                    value="noqual"
+                    v-model="params.sensorsMaterialId"
+                  />
                   Noqual (chance to cause enemy glitch on scan crew action)
                 </label>
               </div>
@@ -1644,13 +2254,23 @@
           Shield Type:
           <div class="radio">
             <label>
-              <input type="radio" name="shieldType" value="shields" v-model="params.shieldType" />
+              <input
+                type="radio"
+                name="shieldType"
+                value="shields"
+                v-model="params.shieldType"
+              />
               Shields (Core Rulebook)
             </label>
           </div>
           <div class="radio">
             <label>
-              <input type="radio" name="shieldType" value="deflector-shield" v-model="params.shieldType" />
+              <input
+                type="radio"
+                name="shieldType"
+                value="deflector-shield"
+                v-model="params.shieldType"
+              />
               Deflector Shields (Starship Operations Manual)
             </label>
           </div>
@@ -1661,9 +2281,18 @@
           <div class="box__select">
             <div class="form-group">
               <label for="shieldsSelect">Shields</label>
-              <select v-model="params.shieldsId" id="shieldsSelect" class="form-control"
-                @change="setDefaultPositionDependentValues('shields', 'totalSp')">
-                <option v-for="option in selectOptions.shields" :value="option.id">
+              <select
+                v-model="params.shieldsId"
+                id="shieldsSelect"
+                class="form-control"
+                @change="
+                  setDefaultPositionDependentValues('shields', 'totalSp')
+                "
+              >
+                <option
+                  v-for="option in selectOptions.shields"
+                  :value="option.id"
+                >
                   {{ option.name }}
                 </option>
               </select>
@@ -1673,28 +2302,48 @@
             <div class="box--flex">
               <div class="form-group col-sm-1-2 col-lg-1-4">
                 <label for="">Forward</label>
-                <input type="number" class="form-control" v-model="params.shieldsByPosition.forward" />
+                <input
+                  type="number"
+                  class="form-control"
+                  v-model="params.shieldsByPosition.forward"
+                />
               </div>
               <div class="form-group col-sm-1-2 col-lg-1-4">
                 <label for="">Port</label>
-                <input type="number" class="form-control" v-model="params.shieldsByPosition.port" />
+                <input
+                  type="number"
+                  class="form-control"
+                  v-model="params.shieldsByPosition.port"
+                />
               </div>
               <div class="form-group col-sm-1-2 col-lg-1-4">
                 <label for="">Starboard</label>
-                <input type="number" class="form-control" v-model="params.shieldsByPosition.starboard" />
+                <input
+                  type="number"
+                  class="form-control"
+                  v-model="params.shieldsByPosition.starboard"
+                />
               </div>
               <div class="form-group col-sm-1-2 col-lg-1-4">
                 <label for="">Aft</label>
-                <input type="number" class="form-control" v-model="params.shieldsByPosition.aft" />
+                <input
+                  type="number"
+                  class="form-control"
+                  v-model="params.shieldsByPosition.aft"
+                />
               </div>
             </div>
 
-            <p v-if="shieldsByPositionTotal != shields.totalSp" class="text-warning">
+            <p
+              v-if="shieldsByPositionTotal != shields.totalSp"
+              class="text-warning"
+            >
               Make sure your shields add up to {{ shields.totalSp }}!
             </p>
           </div>
           <div class="box__info">
-            <strong>Total SP</strong> {{ shields.totalSp }}; <strong>Regen.</strong>
+            <strong>Total SP</strong> {{ shields.totalSp }};
+            <strong>Regen.</strong>
             {{ shields.regen }}
           </div>
           <div class="box__cost">
@@ -1714,15 +2363,23 @@
           <div class="box__select">
             <div class="form-group">
               <label for="shieldsSelect">Deflector Shields</label>
-              <select v-model="params.deflectorShieldId" id="deflectorShieldSelect" class="form-control">
-                <option v-for="option in selectOptions.deflectorShield" :value="option.id">
+              <select
+                v-model="params.deflectorShieldId"
+                id="deflectorShieldSelect"
+                class="form-control"
+              >
+                <option
+                  v-for="option in selectOptions.deflectorShield"
+                  :value="option.id"
+                >
                   {{ option.name }}
                 </option>
               </select>
             </div>
           </div>
           <div class="box__info">
-            <strong>Defense Value</strong> {{ deflectorShield.defenseValue }}/&ndash;;
+            <strong>Defense Value</strong>
+            {{ deflectorShield.defenseValue }}/&ndash;;
             <strong>Bonus to AC</strong> +{{ deflectorShield.bonusToAc }};
             <strong>Bonus to TL</strong> +{{ deflectorShield.bonusToTl }}
           </div>
@@ -1762,20 +2419,29 @@
             <div class="box__header--btns">
               <h4>Weapon Mount {{ i + 1 }} ({{ weaponMount.weight }})</h4>
               <div>
-                <button class="btn btn-primary btn-sm" :disabled="!weaponMount.canBeUpgraded"
-                  @click="upgradeWeaponMount(position, i)">
+                <button
+                  class="btn btn-primary btn-sm"
+                  :disabled="!weaponMount.canBeUpgraded"
+                  @click="upgradeWeaponMount(position, i)"
+                >
                   <svg class="icon">
                     <use xlink:href="#icon-up" />
                   </svg>
                 </button>
-                <button class="btn btn-primary btn-sm" :disabled="!weaponMount.canBeDowngraded"
-                  @click="downgradeWeaponMount(position, i)">
+                <button
+                  class="btn btn-primary btn-sm"
+                  :disabled="!weaponMount.canBeDowngraded"
+                  @click="downgradeWeaponMount(position, i)"
+                >
                   <svg class="icon">
                     <use xlink:href="#icon-down" />
                   </svg>
                 </button>
-                <button class="btn btn-danger btn-sm" :disabled="weaponMount.isFromTemplate"
-                  @click="destroyWeaponMount(position, i)">
+                <button
+                  class="btn btn-danger btn-sm"
+                  :disabled="weaponMount.isFromTemplate"
+                  @click="destroyWeaponMount(position, i)"
+                >
                   <svg class="icon">
                     <use xlink:href="#icon-trash" />
                   </svg>
@@ -1787,15 +2453,27 @@
             <div class="box__select">
               <div class="form-group">
                 <label :for="'shipWeaponSelect_' + i">Weapon </label>
-                <select v-model="params.weaponMounts[position][i].weaponId" :id="'shipWeaponSelect_' + i"
-                  class="form-control" @change="setWeaponLinking(position, i)">
+                <select
+                  v-model="params.weaponMounts[position][i].weaponId"
+                  :id="'shipWeaponSelect_' + i"
+                  class="form-control"
+                  @change="setWeaponLinking(position, i)"
+                >
                   <option value="none">None</option>
-                  <optgroup v-for="weaponType in data.shipWeaponType.data" :label="weaponType">
-                    <template v-for="option in selectOptionsShipWeapon(weaponType, weaponMount)">
+                  <optgroup
+                    v-for="weaponType in data.shipWeaponType.data"
+                    :label="weaponType"
+                  >
+                    <template
+                      v-for="option in selectOptionsShipWeapon(
+                        weaponType,
+                        weaponMount
+                      )"
+                    >
                       <option :value="option.id">
                         {{ option.name }} ({{ option.damage }},
-                        {{ getWeaponRangeNumerical(option) }}, PCU {{ option.pcuCost }}, BP
-                        {{ option.bpCost }})
+                        {{ getWeaponRangeNumerical(option) }}, PCU
+                        {{ option.pcuCost }}, BP {{ option.bpCost }})
                       </option>
                     </template>
                   </optgroup>
@@ -1807,9 +2485,9 @@
 
             <!-- Weapon info -->
             <div class="box__info">
-              <strong>Range</strong> {{ weaponMount.weapon.range }}; <strong>Speed</strong>
-              {{ weaponMount.weapon.speed }}; <strong>Damage</strong>
-              {{ weaponMount.weapon.damage }};
+              <strong>Range</strong> {{ weaponMount.weapon.range }};
+              <strong>Speed</strong> {{ weaponMount.weapon.speed }};
+              <strong>Damage</strong> {{ weaponMount.weapon.damage }};
               <strong>Special Properties</strong>
               {{
                 getNamesFromIds(
@@ -1827,32 +2505,48 @@
                 <!-- none -->
                 <div class="radio">
                   <label>
-                    <input type="radio" :name="'wpn-mount-special-material-' + position + '-' + i" value="none"
-                      v-model="params.weaponMounts[position][i].specialMaterial" />
+                    <input
+                      type="radio"
+                      :name="'wpn-mount-special-material-' + position + '-' + i"
+                      value="none"
+                      v-model="params.weaponMounts[position][i].specialMaterial"
+                    />
                     None
                   </label>
                 </div>
                 <!-- abysium -->
                 <div class="radio">
                   <label>
-                    <input type="radio" :name="'wpn-mount-special-material-' + position + '-' + i" value="abysium"
-                      v-model="params.weaponMounts[position][i].specialMaterial" />
+                    <input
+                      type="radio"
+                      :name="'wpn-mount-special-material-' + position + '-' + i"
+                      value="abysium"
+                      v-model="params.weaponMounts[position][i].specialMaterial"
+                    />
                     Abysium
                   </label>
                 </div>
                 <!-- adamantine alloy -->
                 <div class="radio">
                   <label>
-                    <input type="radio" :name="'wpn-mount-special-material-' + position + '-' + i"
-                      value="adamantine-alloy" v-model="params.weaponMounts[position][i].specialMaterial" />
+                    <input
+                      type="radio"
+                      :name="'wpn-mount-special-material-' + position + '-' + i"
+                      value="adamantine-alloy"
+                      v-model="params.weaponMounts[position][i].specialMaterial"
+                    />
                     Adamantine Alloy
                   </label>
                 </div>
                 <!-- inubrix -->
                 <div class="radio">
                   <label>
-                    <input type="radio" :name="'wpn-mount-special-material-' + position + '-' + i" value="inubrix"
-                      v-model="params.weaponMounts[position][i].specialMaterial" />
+                    <input
+                      type="radio"
+                      :name="'wpn-mount-special-material-' + position + '-' + i"
+                      value="inubrix"
+                      v-model="params.weaponMounts[position][i].specialMaterial"
+                    />
                     Inubrix
                   </label>
                 </div>
@@ -1862,25 +2556,45 @@
             <!-- Is Linked -->
             <div class="box__select">
               <div class="checkbox">
-                <label :for="'isLinked_' + position + '_' + i" v-if="params.weaponMounts[position][i].canBeLinked">
-                  <input type="checkbox" v-model="params.weaponMounts[position][i].isLinked"
-                    :id="'isLinked_' + position + '_' + i" @change="setWeaponLinking(position)" />
+                <label
+                  :for="'isLinked_' + position + '_' + i"
+                  v-if="params.weaponMounts[position][i].canBeLinked"
+                >
+                  <input
+                    type="checkbox"
+                    v-model="params.weaponMounts[position][i].isLinked"
+                    :id="'isLinked_' + position + '_' + i"
+                    @change="setWeaponLinking(position)"
+                  />
                   Linked?
                 </label>
               </div>
             </div>
 
             <!-- has orbital weapon discount (for colony ships and space stations)  -->
-            <div class="box__select" v-if="params.sourcesInUse.som &&
-              sizeCategory.multiplier >= 4 &&
-              (params.hasColonyShipFramework || params.hasSpaceStationFramework) &&
-              isOrbitalWeapon(weaponMount.weapon)
-              ">
+            <div
+              class="box__select"
+              v-if="
+                params.sourcesInUse.som &&
+                sizeCategory.multiplier >= 4 &&
+                (params.hasColonyShipFramework ||
+                  params.hasSpaceStationFramework) &&
+                isOrbitalWeapon(weaponMount.weapon)
+              "
+            >
               <div class="checkbox">
                 <label :for="'hasOrbitalDiscount_' + position + '_' + i">
-                  <input type="checkbox" v-model="params.weaponMounts[position][i].hasOrbitalDiscount" :disabled="!params.weaponMounts[position][i].hasOrbitalDiscount &&
-                    isOrbitalWeaponDiscountUsed
-                    " :id="'hasOrbitalDiscount_' + position + '_' + i" />
+                  <input
+                    type="checkbox"
+                    v-model="
+                      params.weaponMounts[position][i].hasOrbitalDiscount
+                    "
+                    :disabled="
+                      !params.weaponMounts[position][i].hasOrbitalDiscount &&
+                      isOrbitalWeaponDiscountUsed
+                    "
+                    :id="'hasOrbitalDiscount_' + position + '_' + i"
+                  />
                   Has orbital weapon discount for colony ship or space station?
                 </label>
               </div>
@@ -1901,10 +2615,13 @@
                 weaponMount.mountBpCost +
                 weaponMount.linkCost
               }}
-              <span v-if="weaponMount.materialCost > 0 ||
+              <span
+                v-if="
+                  weaponMount.materialCost > 0 ||
                   weaponMount.linkCost > 0 ||
                   weaponMount.mountBpCost > 0
-                  ">
+                "
+              >
                 (weapon {{ weaponMount.bpCost }}
                 <span v-if="weaponMount.materialCost > 0">
                   + material {{ weaponMount.materialCost }}
@@ -1912,7 +2629,9 @@
                 <span v-if="weaponMount.mountBpCost > 0">
                   + mount {{ weaponMount.mountBpCost }}
                 </span>
-                <span v-if="weaponMount.linkCost > 0"> + link {{ weaponMount.linkCost }} </span>)
+                <span v-if="weaponMount.linkCost > 0">
+                  + link {{ weaponMount.linkCost }} </span
+                >)
               </span>
             </div>
           </div>
@@ -1920,8 +2639,11 @@
         </template>
 
         <div class="box__under-box align-right">
-          <button @click="createWeaponMount(position)" :disabled="!canWeaponMountBeCreated(position)"
-            class="btn btn-primary">
+          <button
+            @click="createWeaponMount(position)"
+            :disabled="!canWeaponMountBeCreated(position)"
+            class="btn btn-primary"
+          >
             Create New {{ position.toTitleCase() }} Mount
           </button>
         </div>
@@ -1947,7 +2669,8 @@
           }}
           (weapons {{ weaponsTotalCosts.weaponsBp }} + materials
           {{ weaponsTotalCosts.weaponMaterialsBp }} + mounts
-          {{ weaponsTotalCosts.weaponMountsBp }} + links {{ weaponsTotalCosts.weaponLinksBp }})
+          {{ weaponsTotalCosts.weaponMountsBp }} + links
+          {{ weaponsTotalCosts.weaponLinksBp }})
         </div>
       </div>
       <!--
@@ -1957,7 +2680,11 @@
       | - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       -->
 
-      <div id="other" class="box" v-if="params.sourcesInUse.pw || params.sourcesInUse.som">
+      <div
+        id="other"
+        class="box"
+        v-if="params.sourcesInUse.pw || params.sourcesInUse.som"
+      >
         <header class="box__header">
           <h3 id="other">Systems and Upgrades</h3>
         </header>
@@ -1967,7 +2694,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasAlgalShielding">
-                <input type="checkbox" v-model="params.hasAlgalShielding" id="hasAlgalShielding" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasAlgalShielding"
+                  id="hasAlgalShielding"
+                />
                 Algal Shielding (see <i>Starship Operations Manual</i>, p 27)
               </label>
             </div>
@@ -1985,8 +2716,13 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasAutoDestruct">
-                <input type="checkbox" v-model="params.hasAutoDestruct" id="hasAutoDestruct" />
-                Autodestruct System (see <i>Starship Operations Manual</i>, p 27)
+                <input
+                  type="checkbox"
+                  v-model="params.hasAutoDestruct"
+                  id="hasAutoDestruct"
+                />
+                Autodestruct System (see <i>Starship Operations Manual</i>, p
+                27)
               </label>
             </div>
           </div>
@@ -1999,13 +2735,20 @@
         </div>
 
         <!-- colony ship framework -->
-        <div v-if="params.sourcesInUse.som && this.sizeCategory.multiplier >= 4">
+        <div
+          v-if="params.sourcesInUse.som && this.sizeCategory.multiplier >= 4"
+        >
           <!-- Large or higher -->
           <div class="box__select">
             <div class="checkbox">
               <label for="hasColonyShipFramework">
-                <input type="checkbox" v-model="params.hasColonyShipFramework" id="hasColonyShipFramework" />
-                Colony Ship Framework (see <i>Starship Operations Manual</i>, p 27)
+                <input
+                  type="checkbox"
+                  v-model="params.hasColonyShipFramework"
+                  id="hasColonyShipFramework"
+                />
+                Colony Ship Framework (see <i>Starship Operations Manual</i>, p
+                27)
               </label>
             </div>
           </div>
@@ -2013,7 +2756,11 @@
             <svg class="icon">
               <use xlink:href="#icon-build" />
             </svg>
-            {{ params.hasColonyShipFramework ? Math.floor(frame.bpCost * 0.25) : 0 }}
+            {{
+              params.hasColonyShipFramework
+                ? Math.floor(frame.bpCost * 0.25)
+                : 0
+            }}
           </div>
         </div>
 
@@ -2022,8 +2769,13 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasConsciousnessUplink">
-                <input type="checkbox" v-model="params.hasConsciousnessUplink" id="hasConsciousnessUplink" />
-                Consciousness Uplink Drive (see <i>Starship Operations Manual</i>, p 28)
+                <input
+                  type="checkbox"
+                  v-model="params.hasConsciousnessUplink"
+                  id="hasConsciousnessUplink"
+                />
+                Consciousness Uplink Drive (see
+                <i>Starship Operations Manual</i>, p 28)
               </label>
             </div>
           </div>
@@ -2040,7 +2792,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasDataNet">
-                <input type="checkbox" v-model="params.hasDataNet" id="hasDataNet" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasDataNet"
+                  id="hasDataNet"
+                />
                 Data Net (see <i>Pact Worlds</i>, p152)
               </label>
             </div>
@@ -2048,10 +2804,12 @@
           <div class="box__cost--list">
             <svg class="icon">
               <use xlink:href="#icon-build" />
-            </svg> {{ dataNetBpCost }}
+            </svg>
+            {{ dataNetBpCost }}
             <svg class="icon">
               <use xlink:href="#icon-build" />
-            </svg> {{ dataNetPcuCost }}
+            </svg>
+            {{ dataNetPcuCost }}
           </div>
         </div>
 
@@ -2060,7 +2818,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasHiveJoining">
-                <input type="checkbox" v-model="params.hasHiveJoining" id="hasHiveJoining" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasHiveJoining"
+                  id="hasHiveJoining"
+                />
                 Hive Joining (see <em>Pact Worlds</em>, p152)
               </label>
             </div>
@@ -2068,7 +2830,8 @@
           <div class="box__cost--list">
             <svg class="icon">
               <use xlink:href="#icon-build" />
-            </svg> {{ hiveJoiningBpCost }}
+            </svg>
+            {{ hiveJoiningBpCost }}
           </div>
         </div>
 
@@ -2077,7 +2840,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasPowersap">
-                <input type="checkbox" v-model="params.hasPowersap" id="hasPowersap" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasPowersap"
+                  id="hasPowersap"
+                />
                 Powersap (see <i>Starship Operations Manual</i>, p 29)
               </label>
             </div>
@@ -2095,9 +2862,16 @@
           <div class="box__select">
             <div class="form-group">
               <label for="roboticAppendageSelect">Robotic Appendage</label>
-              <select name="roboticAppendage" id="roboticAppendageSelect" class="form-control"
-                v-model="params.roboticAppendageId">
-                <option v-for="option in selectOptions.roboticAppendage" :value="option.id">
+              <select
+                name="roboticAppendage"
+                id="roboticAppendageSelect"
+                class="form-control"
+                v-model="params.roboticAppendageId"
+              >
+                <option
+                  v-for="option in selectOptions.roboticAppendage"
+                  :value="option.id"
+                >
                   {{ option.name }}
                 </option>
               </select>
@@ -2106,7 +2880,8 @@
           <div class="box__cost--list">
             <svg class="icon">
               <use xlink:href="#icon-build" />
-            </svg> {{ roboticAppendage.bpCost }}
+            </svg>
+            {{ roboticAppendage.bpCost }}
           </div>
         </div>
 
@@ -2115,7 +2890,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasRootSystem">
-                <input type="checkbox" v-model="params.hasRootSystem" id="hasRootSystem" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasRootSystem"
+                  id="hasRootSystem"
+                />
                 Root System (see <i>Starship Operations Manual</i>, p 29)
               </label>
             </div>
@@ -2137,8 +2916,13 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasSpaceStationFramework">
-                <input type="checkbox" v-model="params.hasSpaceStationFramework" id="hasSpaceStationFramework" />
-                Space Station Framework (see <i>Starship Operations Manual</i>, p 29)
+                <input
+                  type="checkbox"
+                  v-model="params.hasSpaceStationFramework"
+                  id="hasSpaceStationFramework"
+                />
+                Space Station Framework (see <i>Starship Operations Manual</i>,
+                p 29)
               </label>
             </div>
           </div>
@@ -2146,7 +2930,11 @@
             <svg class="icon">
               <use xlink:href="#icon-build" />
             </svg>
-            {{ params.hasSpaceStationFramework ? Math.floor(frame.bpCost * 0.2) : 0 }}
+            {{
+              params.hasSpaceStationFramework
+                ? Math.floor(frame.bpCost * 0.2)
+                : 0
+            }}
           </div>
         </div>
 
@@ -2157,20 +2945,37 @@
             <!-- tim -->
             <div class="form-group col-lg-1-2">
               <label for="ctTim">Number of TIMs</label>
-              <input name="ctTim" id="ctTim" class="form-control" type="number" min="0" v-model="params.ctTim"
-                @change="maybeAdjustCtTim('ctTim')" />
+              <input
+                name="ctTim"
+                id="ctTim"
+                class="form-control"
+                type="number"
+                min="0"
+                v-model="params.ctTim"
+                @change="maybeAdjustCtTim('ctTim')"
+              />
             </div>
             <!-- tim__all -->
             <div class="form-group col-lg-1-2">
-              <label for="ctTimAll">of which have Associated Crew Member &ldquo;All&rdquo;</label>
-              <input name="ctTimAll" id="ctTimAll" class="form-control" type="number" min="0" v-model="params.ctTimAll"
-                @change="maybeAdjustCtTim('ctTimAll')" />
+              <label for="ctTimAll"
+                >of which have Associated Crew Member &ldquo;All&rdquo;</label
+              >
+              <input
+                name="ctTimAll"
+                id="ctTimAll"
+                class="form-control"
+                type="number"
+                min="0"
+                v-model="params.ctTimAll"
+                @change="maybeAdjustCtTim('ctTimAll')"
+              />
             </div>
           </div>
           <div class="box__cost--list">
             <svg class="icon">
               <use xlink:href="#icon-build" />
-            </svg> {{ timBpCost }}
+            </svg>
+            {{ timBpCost }}
           </div>
         </div>
 
@@ -2179,7 +2984,12 @@
           <div class="box__select">
             <div class="form-group">
               <label for="viSelect">Virtual Intelligence</label>
-              <select name="vi" id="viSelect" class="form-control" v-model="params.viId">
+              <select
+                name="vi"
+                id="viSelect"
+                class="form-control"
+                v-model="params.viId"
+              >
                 <option v-for="option in selectOptionsVI" :value="option.id">
                   {{ option.id == 'none' ? 'None' : 'Tier ' + option.name }}
                 </option>
@@ -2189,7 +2999,8 @@
           <div class="box__cost--list">
             <svg class="icon">
               <use xlink:href="#icon-build" />
-            </svg> {{ vi.bpCost }}
+            </svg>
+            {{ vi.bpCost }}
           </div>
         </div>
 
@@ -2197,20 +3008,32 @@
         <div v-if="params.sourcesInUse.som && params.viId != 'none'">
           <div class="box__select">
             <div class="form-group">
-              <label for="viHoloProjectorSelect">VI Upgrade: Holographic Projector</label>
-              <select name="viHoloProjector" id="viHoloProjectorSelect" class="form-control"
-                v-model="params.viHoloProjectorId">
-                <option v-for="option in selectOptions.viHoloProjector" :value="option.id">
+              <label for="viHoloProjectorSelect"
+                >VI Upgrade: Holographic Projector</label
+              >
+              <select
+                name="viHoloProjector"
+                id="viHoloProjectorSelect"
+                class="form-control"
+                v-model="params.viHoloProjectorId"
+              >
+                <option
+                  v-for="option in selectOptions.viHoloProjector"
+                  :value="option.id"
+                >
                   {{ option.name }}
                 </option>
               </select>
             </div>
           </div>
-          <div class="box__info"><strong>Maximum Size</strong> {{ viHoloProjectorSize }}</div>
+          <div class="box__info">
+            <strong>Maximum Size</strong> {{ viHoloProjectorSize }}
+          </div>
           <div class="box__cost--list">
             <svg class="icon">
               <use xlink:href="#icon-build" />
-            </svg> {{ viHoloProjector.bpCost }}
+            </svg>
+            {{ viHoloProjector.bpCost }}
           </div>
         </div>
 
@@ -2218,10 +3041,19 @@
         <div v-if="params.sourcesInUse.som && params.viId != 'none'">
           <div class="box__select">
             <div class="form-group">
-              <label for="viSkillExpanderSelect">VI Upgrade: Skill Expander</label>
-              <select name="viSkillExpander" id="viSkillExpanderSelect" class="form-control"
-                v-model="params.viSkillExpanderId">
-                <option v-for="option in selectOptions.viSkillExpander" :value="option.id">
+              <label for="viSkillExpanderSelect"
+                >VI Upgrade: Skill Expander</label
+              >
+              <select
+                name="viSkillExpander"
+                id="viSkillExpanderSelect"
+                class="form-control"
+                v-model="params.viSkillExpanderId"
+              >
+                <option
+                  v-for="option in selectOptions.viSkillExpander"
+                  :value="option.id"
+                >
                   {{ option.name }}
                 </option>
               </select>
@@ -2230,7 +3062,8 @@
           <div class="box__cost--list">
             <svg class="icon">
               <use xlink:href="#icon-build" />
-            </svg> {{ viSkillExpander.bpCost }}
+            </svg>
+            {{ viSkillExpander.bpCost }}
           </div>
         </div>
 
@@ -2239,7 +3072,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasAfterburners">
-                <input type="checkbox" v-model="params.hasAfterburners" id="hasAfterburners" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasAfterburners"
+                  id="hasAfterburners"
+                />
                 Afterburners (see <i>Dark Matter</i>, p 166)
               </label>
             </div>
@@ -2261,7 +3098,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasCaptainsChair">
-                <input type="checkbox" v-model="params.hasCaptainsChair" id="hasCaptainsChair" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasCaptainsChair"
+                  id="hasCaptainsChair"
+                />
                 Captain's Chair (see <i>Dark Matter</i>, p 166)
               </label>
             </div>
@@ -2279,7 +3120,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasDeadReckoner">
-                <input type="checkbox" v-model="params.hasDeadReckoner" id="hasDeadReckoner" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasDeadReckoner"
+                  id="hasDeadReckoner"
+                />
                 Dead Reckoner (see <i>Dark Matter</i>, p 166)
               </label>
             </div>
@@ -2301,7 +3146,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasRadioArray">
-                <input type="checkbox" v-model="params.hasRadioArray" id="hasRadioArray" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasRadioArray"
+                  id="hasRadioArray"
+                />
                 Radio Array (see <i>Dark Matter</i>, p 167)
               </label>
             </div>
@@ -2323,7 +3172,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasRepairDrones">
-                <input type="checkbox" v-model="params.hasRepairDrones" id="hasRepairDrones" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasRepairDrones"
+                  id="hasRepairDrones"
+                />
                 Repair Drones (see <i>Dark Matter</i>, p 167)
               </label>
             </div>
@@ -2345,7 +3198,11 @@
           <div class="box__select">
             <div class="checkbox">
               <label for="hasSensorProbe">
-                <input type="checkbox" v-model="params.hasSensorProbe" id="hasSensorProbe" />
+                <input
+                  type="checkbox"
+                  v-model="params.hasSensorProbe"
+                  id="hasSensorProbe"
+                />
                 Sensor Probe (see <i>Dark Matter</i>, p 164)
               </label>
             </div>
@@ -2379,9 +3236,18 @@
         <template v-for="(customComponent, index) in params.customComponents">
           <!-- delete button -->
           <div class="box__header--btns">
-            <h4>{{ customComponent.name ? customComponent.name : 'New Custom Component' }}</h4>
+            <h4>
+              {{
+                customComponent.name
+                  ? customComponent.name
+                  : 'New Custom Component'
+              }}
+            </h4>
             <div>
-              <button class="btn btn-danger btn-sm" @click="removeCustomComponent(index)">
+              <button
+                class="btn btn-danger btn-sm"
+                @click="removeCustomComponent(index)"
+              >
                 <svg class="icon">
                   <use xlink:href="#icon-trash" />
                 </svg>
@@ -2392,20 +3258,34 @@
           <!-- component name -->
           <div class="form-group">
             <label :for="'customComponentName' + index">Component Name</label>
-            <input type="text" :id="'customComponentName' + index" v-model="customComponent.name" class="form-control" />
+            <input
+              type="text"
+              :id="'customComponentName' + index"
+              v-model="customComponent.name"
+              class="form-control"
+            />
           </div>
 
           <!-- notes -->
           <div class="form-group">
             <label for="'customComponentNotes' + index">Notes</label>
-            <textarea id="'customComponentNotes' + index" cols="30" rows="2" v-model="customComponent.notes"
-              class="form-control"></textarea>
+            <textarea
+              id="'customComponentNotes' + index"
+              cols="30"
+              rows="2"
+              v-model="customComponent.notes"
+              class="form-control"
+            ></textarea>
           </div>
 
           <!-- is essential -->
           <div class="checkbox">
             <label>
-              <input type="checkbox" :id="'isEssential' + index" v-model="customComponent.isEssential" />
+              <input
+                type="checkbox"
+                :id="'isEssential' + index"
+                v-model="customComponent.isEssential"
+              />
               Is this an essential system?
             </label>
           </div>
@@ -2414,15 +3294,23 @@
             <!-- PCU -->
             <div class="form-group col-sm-1-1 col-lg-1-2">
               <label for="'customComponentPcuCost' + index">PCU Cost</label>
-              <input type="number" :id="'customComponentPcuCost' + index" class="form-control"
-                v-model="customComponent.pcuCost" />
+              <input
+                type="number"
+                :id="'customComponentPcuCost' + index"
+                class="form-control"
+                v-model="customComponent.pcuCost"
+              />
             </div>
 
             <!-- BP -->
             <div class="form-group col-sm-1-1 col-lg-1-2">
               <label for="'customComponentBpCost' + index">BP Cost</label>
-              <input type="number" :id="'customComponentBpCost' + index" class="form-control"
-                v-model="customComponent.bpCost" />
+              <input
+                type="number"
+                :id="'customComponentBpCost' + index"
+                class="form-control"
+                v-model="customComponent.bpCost"
+              />
             </div>
           </div>
         </template>
@@ -2459,76 +3347,97 @@
         <ul>
           <li>
             Starforger RPG Ship Builder by
-            <a href="mailto:dennyw17@gmail.com">Denny Wright</a> &bull; March 2023
+            <a href="mailto:dennyw17@gmail.com">Denny Wright</a> &bull; March
+            2023
           </li>
           <li>
             Original Starfinder RPG Ship Builder by
             <a href="http://www.jamesturneronline.net">James Turner</a> &bull;
-            <a href="https://twitter.com/james_c_turner">@james_c_turner</a> &bull; Sep 2017 (last
-            updated September 2020)
+            <a href="https://twitter.com/james_c_turner">@james_c_turner</a>
+            &bull; Sep 2017 (last updated September 2020)
           </li>
           <li>
-            <a href="https://magehandpress.com/product/dark-matter-pdf">Dark Matter</a> &copy; Mage
-            Hand Press LLC
+            <a href="https://magehandpress.com/product/dark-matter-pdf"
+              >Dark Matter</a
+            >
+            &copy; Mage Hand Press LLC
           </li>
-          <li><a href="http://paizo.com/starfinder/">Starfinder RPG</a> &copy; Paizo Inc, 2017</li>
+          <li>
+            <a href="http://paizo.com/starfinder/">Starfinder RPG</a> &copy;
+            Paizo Inc, 2017
+          </li>
           <li>Open Game Licence</li>
           <li>Made with <a href="https://vuejs.org/">Vue.js</a></li>
           <li>
             Visit
-            <a href="https://github.com/dennywright/sfshipbuilder">repo on Github</a> to fork or
-            raise issues
+            <a href="https://github.com/dennywright/sfshipbuilder"
+              >repo on Github</a
+            >
+            to fork or raise issues
           </li>
           <!-- <li>
             Artwork by <a href="https://douglasshuler.com/">Douglas Shuler</a> (used with
             permission)
           </li> -->
-          <li>Icons by the <a href="https://thenounproject.com/">Noun Project</a>:</li>
+          <li>
+            Icons by the <a href="https://thenounproject.com/">Noun Project</a>:
+          </li>
           <ul>
             <li>
               <svg class="icon">
                 <use xlink:href="#icon-close" />
               </svg>
-              created by <a href="https://thenounproject.com/gurupurnima4/">Guru</a>
+              created by
+              <a href="https://thenounproject.com/gurupurnima4/">Guru</a>
             </li>
             <li>
               <svg class="icon">
-                <use xlink:href="#icon-power" />
-              </svg>,
+                <use xlink:href="#icon-power" /></svg
+              >,
               <svg class="icon">
-                <use xlink:href="#icon-trash" />
-              </svg>,
+                <use xlink:href="#icon-trash" /></svg
+              >,
               <svg class="icon">
                 <use xlink:href="#icon-up" />
-              </svg> and
+              </svg>
+              and
               <svg class="icon">
                 <use xlink:href="#icon-down" />
               </svg>
-              created by <a href="https://thenounproject.com/ayasofya/">Aya Sofya</a>
+              created by
+              <a href="https://thenounproject.com/ayasofya/">Aya Sofya</a>
             </li>
             <li>
               <svg class="icon">
                 <use xlink:href="#icon-menu" />
               </svg>
-              created by <a href="https://thenounproject.com/agniakash40/">Agni</a>
+              created by
+              <a href="https://thenounproject.com/agniakash40/">Agni</a>
             </li>
             <li>
               <svg class="icon">
                 <use xlink:href="#icon-build" />
               </svg>
-              created by <a href="https://thenounproject.com/creativestall/">Creative Stall</a>
+              created by
+              <a href="https://thenounproject.com/creativestall/"
+                >Creative Stall</a
+              >
             </li>
             <li>
               <svg class="icon">
                 <use xlink:href="#icon-plus" />
               </svg>
-              created by <a href="https://thenounproject.com/bunkgensara/">Bismillah</a>
+              created by
+              <a href="https://thenounproject.com/bunkgensara/">Bismillah</a>
             </li>
             <li>
               <svg class="icon">
                 <use xlink:href="#icon-duplicate" />
               </svg>
-              created by <a href="https://thenounproject.com/tyagineha.2112/">Neha Tyagi</a>
+              created by
+              <a href="https://thenounproject.com/tyagineha.2112/"
+                >Neha Tyagi</a
+              >
             </li>
           </ul>
         </ul>

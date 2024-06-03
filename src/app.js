@@ -27,7 +27,7 @@ import shipData from './modules/shipData.js';
 import { saveAs } from 'file-saver';
 
 // Change Case
-import { camelCase, paramCase } from 'change-case';
+import { camelCase, kebabCase } from 'change-case';
 
 /*
 |------------------------------------------------------------------------------------------
@@ -1009,9 +1009,9 @@ export default {
 
     // computed continued...
     driftEngineBpCost() {
-        return this.params.sourcesInUse.dnd ? 
-          this.driftEngine.engineRating * this.sizeCategory.multiplier :
-          this.driftEngine.bpCostMultiplier * this.sizeCategory.multiplier;
+      return this.params.sourcesInUse.dnd ?
+        this.driftEngine.engineRating * this.sizeCategory.multiplier :
+        this.driftEngine.bpCostMultiplier * this.sizeCategory.multiplier;
     },
 
     // computed continued...
@@ -2617,7 +2617,7 @@ export default {
       const shipName = this.params.shipName ? this.params.shipName : 'New Ship';
       console.log(shipName);
       const shipData = {
-        id: paramCase(shipName),
+        id: kebabCase(shipName),
         source: 'sfsbuilder',
         name: shipName,
         size: this.frame.size,
