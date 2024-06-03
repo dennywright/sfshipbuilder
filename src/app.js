@@ -4,6 +4,7 @@ import Nav from './components/Nav.vue';
 import Summary from './components/Summary.vue';
 import Intro from './components/Intro.vue';
 import Patreon from './components/Patreon.vue';
+import Readout from './components/Readout.vue';
 import Sources from './components/Sources.vue';
 
 // Helper functions
@@ -41,6 +42,7 @@ export default {
     Intro,
     Patreon,
     Sources,
+    Readout,
   },
   data() {
     return {
